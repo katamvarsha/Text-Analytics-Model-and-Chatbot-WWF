@@ -1,0 +1,466 @@
+data &em_score_output;
+set &em_score_output;
+*------------------------------------------------------------*;
+* EM SCORE CODE;
+*------------------------------------------------------------*;
+*------------------------------------------------------------*;
+* TOOL: Input Data Source;
+* TYPE: SAMPLE;
+* NODE: Ids3;
+*------------------------------------------------------------*;
+*------------------------------------------------------------*;
+* TOOL: Partition Class;
+* TYPE: SAMPLE;
+* NODE: Part;
+*------------------------------------------------------------*;
+*------------------------------------------------------------*;
+* TOOL: Extension Class;
+* TYPE: TM;
+* NODE: TextParsing;
+*------------------------------------------------------------*;
+*------------------------------------------------------------*;
+* TOOL: Extension Class;
+* TYPE: TM;
+* NODE: TextFilter;
+*------------------------------------------------------------*;
+_document_ = _n_;
+rc=tgscore(description,"termloc.TextFilter_tmconfig", "termloc.TextFilter_filtterms", "TextFilter_out", "&_multifile", 0);
+drop rc;
+*------------------------------------------------------------*;
+* TOOL: Extension Class;
+* TYPE: TM;
+* NODE: TextTopic;
+*------------------------------------------------------------*;
+/* First we create a Weighted TMOUT Data Set based on weighted terms*/
+proc tmutil data=work.TextFilter_out key=termloc.TextFilter_filtterms;
+control init release;
+weight cellwgt=LOG in_weight=termloc.TextFilter_filtterms (keep=key weight);
+output out=work._weighted_tmout;
+
+%row_pivot_normalize(transds=work._weighted_tmout, outtransds=WORK.TMOUTNORM,
+      col_sumds=work._termsumds,row=_document_,col=_termnum_,entry=_count_,
+      pivot=0.7,tmt_config=termloc.TextFilter_tmconfig,tmt_train=0,prefix=TextTopic);
+
+/*initialize topics and termtopics datasets in case they do not exist (0 topics case)*/
+%macro tmt_check_topics_exist;
+%if(^%sysfunc(exist(termloc.TextTopic_topics))) %then %do;
+   proc sql noprint; create table termloc.TextTopic_topics
+   (_topicid decimal, _docCutoff decimal, _termCutoff decimal, _name char(1024), _cat char(4), /* _apply char(1), */ _numterms decimal, _numdocs decimal, _displayCat char(200) );
+   quit;
+%end;
+%if(^%sysfunc(exist(termloc.TextTopic_termtopics))) %then %do;
+   proc sql noprint; create table termloc.TextTopic_termtopics
+   (_topicid decimal, _weight decimal, _termid decimal);
+   quit;
+%end;
+%mend tmt_check_topics_exist;
+%tmt_check_topics_exist;
+data work.TextTopic_termtopics; set termloc.TextTopic_termtopics; run;
+data work.TextTopic_topics; set termloc.TextTopic_topics; run;
+%tmt_doc_score(termtopds=work.TextTopic_termtopics, docds=&em_score_output,
+outds=WORK.TMOUTNORM, topicds=work.TextTopic_topics, newdocds=work._newdocds, scoring=yes,
+termsumds=work._termsumds, prefix=TextTopic_,pivot=0.7);
+data &em_score_output; set work._newdocds;
+data &em_score_output;
+set &em_score_output;
+*------------------------------------------------------------*;
+* TOOL: Extension Class;
+* TYPE: MODEL;
+* NODE: Tree;
+*------------------------------------------------------------*;
+****************************************************************;
+******             DECISION TREE SCORING CODE             ******;
+****************************************************************;
+
+******         LENGTHS OF NEW CHARACTER VARIABLES         ******;
+LENGTH I_Group  $   27;
+LENGTH U_Group  $   27;
+LENGTH _WARN_  $    4;
+
+******              LABELS FOR NEW VARIABLES              ******;
+label _NODE_ = 'Node' ;
+label _LEAF_ = 'Leaf' ;
+label P_GroupSustainer_Request = 'Predicted: Group=Sustainer Request' ;
+label P_GroupChange_Solicitation_prefe =
+'Predicted: Group=Change Solicitation prefere' ;
+label P_GroupBenefit_update = 'Predicted: Group=Benefit update' ;
+label P_GroupDonation_Question = 'Predicted: Group=Donation Question' ;
+label P_GroupMailed_info = 'Predicted: Group=Mailed info' ;
+label P_GroupBenefit_issue = 'Predicted: Group=Benefit issue' ;
+label P_GroupRenewal_Issue = 'Predicted: Group=Renewal Issue' ;
+label P_GroupChange_Personal_Informati =
+'Predicted: Group=Change Personal Information' ;
+label P_GroupRefund = 'Predicted: Group=Refund' ;
+label P_GroupMember_Inquiry = 'Predicted: Group=Member Inquiry' ;
+label Q_GroupSustainer_Request = 'Unadjusted P: Group=Sustainer Request' ;
+label Q_GroupChange_Solicitation_prefe =
+'Unadjusted P: Group=Change Solicitation prefere' ;
+label Q_GroupBenefit_update = 'Unadjusted P: Group=Benefit update' ;
+label Q_GroupDonation_Question = 'Unadjusted P: Group=Donation Question' ;
+label Q_GroupMailed_info = 'Unadjusted P: Group=Mailed info' ;
+label Q_GroupBenefit_issue = 'Unadjusted P: Group=Benefit issue' ;
+label Q_GroupRenewal_Issue = 'Unadjusted P: Group=Renewal Issue' ;
+label Q_GroupChange_Personal_Informati =
+'Unadjusted P: Group=Change Personal Information' ;
+label Q_GroupRefund = 'Unadjusted P: Group=Refund' ;
+label Q_GroupMember_Inquiry = 'Unadjusted P: Group=Member Inquiry' ;
+label V_GroupSustainer_Request = 'Validated: Group=Sustainer Request' ;
+label V_GroupChange_Solicitation_prefe =
+'Validated: Group=Change Solicitation prefere' ;
+label V_GroupBenefit_update = 'Validated: Group=Benefit update' ;
+label V_GroupDonation_Question = 'Validated: Group=Donation Question' ;
+label V_GroupMailed_info = 'Validated: Group=Mailed info' ;
+label V_GroupBenefit_issue = 'Validated: Group=Benefit issue' ;
+label V_GroupRenewal_Issue = 'Validated: Group=Renewal Issue' ;
+label V_GroupChange_Personal_Informati =
+'Validated: Group=Change Personal Information' ;
+label V_GroupRefund = 'Validated: Group=Refund' ;
+label V_GroupMember_Inquiry = 'Validated: Group=Member Inquiry' ;
+label I_Group = 'Into: Group' ;
+label U_Group = 'Unnormalized Into: Group' ;
+label _WARN_ = 'Warnings' ;
+
+
+******      TEMPORARY VARIABLES FOR FORMATTED VALUES      ******;
+LENGTH _ARBFMT_27 $     27; DROP _ARBFMT_27;
+_ARBFMT_27 = ' '; /* Initialize to avoid warning. */
+
+
+******             ASSIGN OBSERVATION TO NODE             ******;
+IF  NOT MISSING(TextTopic_raw4 ) AND
+  TextTopic_raw4  <              -0.0305 THEN DO;
+  _NODE_  =                    2;
+  _LEAF_  =                    1;
+  P_GroupSustainer_Request  =                    0;
+  P_GroupChange_Solicitation_prefe  =                    0;
+  P_GroupBenefit_update  =     0.22222222222222;
+  P_GroupDonation_Question  =     0.11111111111111;
+  P_GroupMailed_info  =                    0;
+  P_GroupBenefit_issue  =     0.22222222222222;
+  P_GroupRenewal_Issue  =                    0;
+  P_GroupChange_Personal_Informati  =     0.11111111111111;
+  P_GroupRefund  =     0.11111111111111;
+  P_GroupMember_Inquiry  =     0.22222222222222;
+  Q_GroupSustainer_Request  =                    0;
+  Q_GroupChange_Solicitation_prefe  =                    0;
+  Q_GroupBenefit_update  =     0.22222222222222;
+  Q_GroupDonation_Question  =     0.11111111111111;
+  Q_GroupMailed_info  =                    0;
+  Q_GroupBenefit_issue  =     0.22222222222222;
+  Q_GroupRenewal_Issue  =                    0;
+  Q_GroupChange_Personal_Informati  =     0.11111111111111;
+  Q_GroupRefund  =     0.11111111111111;
+  Q_GroupMember_Inquiry  =     0.22222222222222;
+  V_GroupSustainer_Request  =                    0;
+  V_GroupChange_Solicitation_prefe  =                    0;
+  V_GroupBenefit_update  =                    0;
+  V_GroupDonation_Question  =                    0;
+  V_GroupMailed_info  =                    0;
+  V_GroupBenefit_issue  =                    0;
+  V_GroupRenewal_Issue  =                    0;
+  V_GroupChange_Personal_Informati  =                    0;
+  V_GroupRefund  =                    0;
+  V_GroupMember_Inquiry  =                    0;
+  I_Group  = 'BENEFIT UPDATE' ;
+  U_Group  = 'Benefit update' ;
+  END;
+ELSE DO;
+  IF  NOT MISSING(TextTopic_raw19 ) AND
+                  0.1055 <= TextTopic_raw19  THEN DO;
+    _NODE_  =                    5;
+    _LEAF_  =                    7;
+    P_GroupSustainer_Request  =     0.44444444444444;
+    P_GroupChange_Solicitation_prefe  =     0.07407407407407;
+    P_GroupBenefit_update  =     0.18518518518518;
+    P_GroupDonation_Question  =     0.14814814814814;
+    P_GroupMailed_info  =     0.03703703703703;
+    P_GroupBenefit_issue  =                    0;
+    P_GroupRenewal_Issue  =                    0;
+    P_GroupChange_Personal_Informati  =                    0;
+    P_GroupRefund  =                    0;
+    P_GroupMember_Inquiry  =     0.11111111111111;
+    Q_GroupSustainer_Request  =     0.44444444444444;
+    Q_GroupChange_Solicitation_prefe  =     0.07407407407407;
+    Q_GroupBenefit_update  =     0.18518518518518;
+    Q_GroupDonation_Question  =     0.14814814814814;
+    Q_GroupMailed_info  =     0.03703703703703;
+    Q_GroupBenefit_issue  =                    0;
+    Q_GroupRenewal_Issue  =                    0;
+    Q_GroupChange_Personal_Informati  =                    0;
+    Q_GroupRefund  =                    0;
+    Q_GroupMember_Inquiry  =     0.11111111111111;
+    V_GroupSustainer_Request  =     0.33333333333333;
+    V_GroupChange_Solicitation_prefe  =                    0;
+    V_GroupBenefit_update  =     0.33333333333333;
+    V_GroupDonation_Question  =                    0;
+    V_GroupMailed_info  =                    0;
+    V_GroupBenefit_issue  =     0.33333333333333;
+    V_GroupRenewal_Issue  =                    0;
+    V_GroupChange_Personal_Informati  =                    0;
+    V_GroupRefund  =                    0;
+    V_GroupMember_Inquiry  =                    0;
+    I_Group  = 'SUSTAINER REQUEST' ;
+    U_Group  = 'Sustainer Request' ;
+    END;
+  ELSE DO;
+    IF  NOT MISSING(TextTopic_raw21 ) AND
+                     0.498 <= TextTopic_raw21  THEN DO;
+      _NODE_  =                    7;
+      _LEAF_  =                    6;
+      P_GroupSustainer_Request  =     0.35714285714285;
+      P_GroupChange_Solicitation_prefe  =     0.21428571428571;
+      P_GroupBenefit_update  =     0.07142857142857;
+      P_GroupDonation_Question  =     0.14285714285714;
+      P_GroupMailed_info  =                    0;
+      P_GroupBenefit_issue  =     0.07142857142857;
+      P_GroupRenewal_Issue  =                    0;
+      P_GroupChange_Personal_Informati  =                    0;
+      P_GroupRefund  =                    0;
+      P_GroupMember_Inquiry  =     0.14285714285714;
+      Q_GroupSustainer_Request  =     0.35714285714285;
+      Q_GroupChange_Solicitation_prefe  =     0.21428571428571;
+      Q_GroupBenefit_update  =     0.07142857142857;
+      Q_GroupDonation_Question  =     0.14285714285714;
+      Q_GroupMailed_info  =                    0;
+      Q_GroupBenefit_issue  =     0.07142857142857;
+      Q_GroupRenewal_Issue  =                    0;
+      Q_GroupChange_Personal_Informati  =                    0;
+      Q_GroupRefund  =                    0;
+      Q_GroupMember_Inquiry  =     0.14285714285714;
+      V_GroupSustainer_Request  =                    1;
+      V_GroupChange_Solicitation_prefe  =                    0;
+      V_GroupBenefit_update  =                    0;
+      V_GroupDonation_Question  =                    0;
+      V_GroupMailed_info  =                    0;
+      V_GroupBenefit_issue  =                    0;
+      V_GroupRenewal_Issue  =                    0;
+      V_GroupChange_Personal_Informati  =                    0;
+      V_GroupRefund  =                    0;
+      V_GroupMember_Inquiry  =                    0;
+      I_Group  = 'SUSTAINER REQUEST' ;
+      U_Group  = 'Sustainer Request' ;
+      END;
+    ELSE DO;
+      IF  NOT MISSING(TextTopic_raw12 ) AND
+                      0.0735 <= TextTopic_raw12  THEN DO;
+        _NODE_  =                    9;
+        _LEAF_  =                    5;
+        P_GroupSustainer_Request  =     0.20588235294117;
+        P_GroupChange_Solicitation_prefe  =     0.13725490196078;
+        P_GroupBenefit_update  =     0.06862745098039;
+        P_GroupDonation_Question  =     0.17647058823529;
+        P_GroupMailed_info  =     0.07843137254901;
+        P_GroupBenefit_issue  =     0.07843137254901;
+        P_GroupRenewal_Issue  =     0.19607843137254;
+        P_GroupChange_Personal_Informati  =     0.02941176470588;
+        P_GroupRefund  =     0.01960784313725;
+        P_GroupMember_Inquiry  =     0.00980392156862;
+        Q_GroupSustainer_Request  =     0.20588235294117;
+        Q_GroupChange_Solicitation_prefe  =     0.13725490196078;
+        Q_GroupBenefit_update  =     0.06862745098039;
+        Q_GroupDonation_Question  =     0.17647058823529;
+        Q_GroupMailed_info  =     0.07843137254901;
+        Q_GroupBenefit_issue  =     0.07843137254901;
+        Q_GroupRenewal_Issue  =     0.19607843137254;
+        Q_GroupChange_Personal_Informati  =     0.02941176470588;
+        Q_GroupRefund  =     0.01960784313725;
+        Q_GroupMember_Inquiry  =     0.00980392156862;
+        V_GroupSustainer_Request  =      0.2051282051282;
+        V_GroupChange_Solicitation_prefe  =     0.23076923076923;
+        V_GroupBenefit_update  =     0.15384615384615;
+        V_GroupDonation_Question  =      0.1025641025641;
+        V_GroupMailed_info  =     0.02564102564102;
+        V_GroupBenefit_issue  =     0.07692307692307;
+        V_GroupRenewal_Issue  =     0.05128205128205;
+        V_GroupChange_Personal_Informati  =     0.12820512820512;
+        V_GroupRefund  =     0.02564102564102;
+        V_GroupMember_Inquiry  =                    0;
+        I_Group  = 'SUSTAINER REQUEST' ;
+        U_Group  = 'Sustainer Request' ;
+        END;
+      ELSE DO;
+        IF  NOT MISSING(TextTopic_raw13 ) AND
+                        0.0005 <= TextTopic_raw13  THEN DO;
+          IF  NOT MISSING(TextTopic_raw16 ) AND
+            TextTopic_raw16  <              -0.0145 THEN DO;
+            _NODE_  =                   16;
+            _LEAF_  =                    3;
+            P_GroupSustainer_Request  =                    0;
+            P_GroupChange_Solicitation_prefe  =                  0.2;
+            P_GroupBenefit_update  =                  0.4;
+            P_GroupDonation_Question  =                  0.2;
+            P_GroupMailed_info  =                    0;
+            P_GroupBenefit_issue  =                    0;
+            P_GroupRenewal_Issue  =                    0;
+            P_GroupChange_Personal_Informati  =                    0;
+            P_GroupRefund  =                    0;
+            P_GroupMember_Inquiry  =                  0.2;
+            Q_GroupSustainer_Request  =                    0;
+            Q_GroupChange_Solicitation_prefe  =                  0.2;
+            Q_GroupBenefit_update  =                  0.4;
+            Q_GroupDonation_Question  =                  0.2;
+            Q_GroupMailed_info  =                    0;
+            Q_GroupBenefit_issue  =                    0;
+            Q_GroupRenewal_Issue  =                    0;
+            Q_GroupChange_Personal_Informati  =                    0;
+            Q_GroupRefund  =                    0;
+            Q_GroupMember_Inquiry  =                  0.2;
+            V_GroupSustainer_Request  =                    0;
+            V_GroupChange_Solicitation_prefe  =                    0;
+            V_GroupBenefit_update  =                  0.5;
+            V_GroupDonation_Question  =                    0;
+            V_GroupMailed_info  =                    0;
+            V_GroupBenefit_issue  =                    0;
+            V_GroupRenewal_Issue  =                    0;
+            V_GroupChange_Personal_Informati  =                 0.25;
+            V_GroupRefund  =                 0.25;
+            V_GroupMember_Inquiry  =                    0;
+            I_Group  = 'BENEFIT UPDATE' ;
+            U_Group  = 'Benefit update' ;
+            END;
+          ELSE DO;
+            _NODE_  =                   17;
+            _LEAF_  =                    4;
+            P_GroupSustainer_Request  =     0.20210896309314;
+            P_GroupChange_Solicitation_prefe  =     0.17926186291739;
+            P_GroupBenefit_update  =     0.14762741652021;
+            P_GroupDonation_Question  =     0.15289982425307;
+            P_GroupMailed_info  =     0.05272407732864;
+            P_GroupBenefit_issue  =     0.09314586994727;
+            P_GroupRenewal_Issue  =     0.04569420035149;
+            P_GroupChange_Personal_Informati  =     0.08435852372583;
+            P_GroupRefund  =     0.04042179261862;
+            P_GroupMember_Inquiry  =     0.00175746924428;
+            Q_GroupSustainer_Request  =     0.20210896309314;
+            Q_GroupChange_Solicitation_prefe  =     0.17926186291739;
+            Q_GroupBenefit_update  =     0.14762741652021;
+            Q_GroupDonation_Question  =     0.15289982425307;
+            Q_GroupMailed_info  =     0.05272407732864;
+            Q_GroupBenefit_issue  =     0.09314586994727;
+            Q_GroupRenewal_Issue  =     0.04569420035149;
+            Q_GroupChange_Personal_Informati  =     0.08435852372583;
+            Q_GroupRefund  =     0.04042179261862;
+            Q_GroupMember_Inquiry  =     0.00175746924428;
+            V_GroupSustainer_Request  =      0.3034188034188;
+            V_GroupChange_Solicitation_prefe  =     0.16666666666666;
+            V_GroupBenefit_update  =     0.13675213675213;
+            V_GroupDonation_Question  =     0.14102564102564;
+            V_GroupMailed_info  =     0.02136752136752;
+            V_GroupBenefit_issue  =     0.06837606837606;
+            V_GroupRenewal_Issue  =     0.05982905982905;
+            V_GroupChange_Personal_Informati  =     0.05555555555555;
+            V_GroupRefund  =     0.04700854700854;
+            V_GroupMember_Inquiry  =                    0;
+            I_Group  = 'SUSTAINER REQUEST' ;
+            U_Group  = 'Sustainer Request' ;
+            END;
+          END;
+        ELSE DO;
+          _NODE_  =                   10;
+          _LEAF_  =                    2;
+          P_GroupSustainer_Request  =     0.33040935672514;
+          P_GroupChange_Solicitation_prefe  =     0.15058479532163;
+          P_GroupBenefit_update  =     0.13157894736842;
+          P_GroupDonation_Question  =     0.13377192982456;
+          P_GroupMailed_info  =     0.02631578947368;
+          P_GroupBenefit_issue  =     0.09795321637426;
+          P_GroupRenewal_Issue  =     0.04020467836257;
+          P_GroupChange_Personal_Informati  =     0.06578947368421;
+          P_GroupRefund  =      0.0219298245614;
+          P_GroupMember_Inquiry  =     0.00146198830409;
+          Q_GroupSustainer_Request  =     0.33040935672514;
+          Q_GroupChange_Solicitation_prefe  =     0.15058479532163;
+          Q_GroupBenefit_update  =     0.13157894736842;
+          Q_GroupDonation_Question  =     0.13377192982456;
+          Q_GroupMailed_info  =     0.02631578947368;
+          Q_GroupBenefit_issue  =     0.09795321637426;
+          Q_GroupRenewal_Issue  =     0.04020467836257;
+          Q_GroupChange_Personal_Informati  =     0.06578947368421;
+          Q_GroupRefund  =      0.0219298245614;
+          Q_GroupMember_Inquiry  =     0.00146198830409;
+          V_GroupSustainer_Request  =     0.28295819935691;
+          V_GroupChange_Solicitation_prefe  =     0.14790996784565;
+          V_GroupBenefit_update  =     0.12861736334405;
+          V_GroupDonation_Question  =     0.14630225080385;
+          V_GroupMailed_info  =     0.04501607717041;
+          V_GroupBenefit_issue  =     0.10450160771704;
+          V_GroupRenewal_Issue  =     0.04662379421221;
+          V_GroupChange_Personal_Informati  =     0.06752411575562;
+          V_GroupRefund  =      0.0192926045016;
+          V_GroupMember_Inquiry  =      0.0112540192926;
+          I_Group  = 'SUSTAINER REQUEST' ;
+          U_Group  = 'Sustainer Request' ;
+          END;
+        END;
+      END;
+    END;
+  END;
+
+****************************************************************;
+******          END OF DECISION TREE SCORING CODE         ******;
+****************************************************************;
+
+drop _LEAF_;
+*------------------------------------------------------------*;
+* TOOL: Model Compare Class;
+* TYPE: ASSESS;
+* NODE: MdlComp;
+*------------------------------------------------------------*;
+drop _temp_;
+if (P_GroupSustainer_Request ge 0.33040935672514) then do;
+_temp_ = dmran(1234);
+b_Group = floor(1 + 13*_temp_);
+end;
+else
+if (P_GroupSustainer_Request ge 0.20588235294117) then do;
+b_Group = 14;
+end;
+else
+if (P_GroupSustainer_Request ge 0.20210896309314) then do;
+_temp_ = dmran(1234);
+b_Group = floor(15 + 5*_temp_);
+end;
+else
+do;
+b_Group = 20;
+end;
+*------------------------------------------------------------*;
+* TOOL: Score Node;
+* TYPE: ASSESS;
+* NODE: Score;
+*------------------------------------------------------------*;
+*------------------------------------------------------------*;
+* Score: Creating Fixed Names;
+*------------------------------------------------------------*;
+LABEL EM_SEGMENT = 'Node';
+EM_SEGMENT = _NODE_;
+LENGTH EM_EVENTPROBABILITY 8;
+LABEL EM_EVENTPROBABILITY = 'Probability for level SUSTAINER REQUEST of Group';
+EM_EVENTPROBABILITY = P_GroupSustainer_Request;
+LENGTH EM_PROBABILITY 8;
+LABEL EM_PROBABILITY = 'Probability of Classification';
+EM_PROBABILITY =
+max(
+P_GroupSustainer_Request
+,
+P_GroupRenewal_Issue
+,
+P_GroupRefund
+,
+P_GroupMember_Inquiry
+,
+P_GroupMailed_info
+,
+P_GroupDonation_Question
+,
+P_GroupChange_Solicitation_prefe
+,
+P_GroupChange_Personal_Informati
+,
+P_GroupBenefit_update
+,
+P_GroupBenefit_issue
+);
+LENGTH EM_CLASSIFICATION $%dmnorlen;
+LABEL EM_CLASSIFICATION = "Prediction for Group";
+EM_CLASSIFICATION = I_Group;
