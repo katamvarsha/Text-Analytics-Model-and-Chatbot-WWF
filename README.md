@@ -83,13 +83,18 @@ _For more information on how to configure and customize the react chatbot, pleas
 
 ### Usage
 
-Run the chatbot using the following command, this will open the development server at localhost:3000.
+Run the chatbot using the following command, this will open the development server at http://localhost:3000/.
  ```sh
    cd wwf
    npm start
    ```
+<img src="https://user-images.githubusercontent.com/111586468/234170653-fa514401-6e37-4870-9b80-12534e0d07f1.JPG" height="350">    
    
-   <img src="https://user-images.githubusercontent.com/111586468/234170653-fa514401-6e37-4870-9b80-12534e0d07f1.JPG" height="500">  
+| Key Words        | Example Prompts from WWF Dataset           | Group  |
+| ------------- |:-------------:| -----:|
+| (cancel AND (membership OR donation)) OR refund      | I thought I was making a donation to the Canadian Wildlife Fund. I was not impressed to find out I was paying in US funds. IF there is a way to cancel this I would be happy. Otherwise I will be more careful next time | Refund |
+| ((change OR update) AND (mail OR address OR name))   | I am trying to donate online. My name has recently changed from Lewis to Maloney. My email address has remained the same but the website won't accept this as a valid email address even though I received my donation request through that email address     |   Change Personal Information | 
+
 
 ## Recommended Next Steps
 
