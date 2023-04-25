@@ -44,7 +44,7 @@ We then proceeded to create the Text Analytics model. We want to create model th
 
 **Results for the Text Analytics Model**
 
-![4127a8fef430552efa5474ef78551f1c](https://user-images.githubusercontent.com/131799834/234361560-bfe459f4-a993-4f11-b037-a68474d9e5ad.png)
+![f87f5cf4c24df6134268d5c44c9d81e8](https://user-images.githubusercontent.com/131799834/234364191-b20b8d69-8cb2-4d72-bc67-642682387700.png)
 
 After topic extraction and matching our collected 25 topics with the 10 general ones given by the client, we compared a neural network, decision tree, and regression model to see which would more reliably predict the topic of a customer inquiry based on its contents. Out of those three, regression was the most accurate model, featuring a KS-statistic of 0.133 and a KS probability cutoff of 0.295.
 
