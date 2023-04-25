@@ -22,7 +22,6 @@ In our research, we identified extended wait times, inaccurate query resolution,
 
 WWF needed a comprehensive solution to improve their customer query resolution process and ease the workload of their Customer Service team. We developed a chatbot and a text analytics model that could accurately forecast customer queries and display their accuracy percentage. WWF faced significant challenges in managing customer queries and resolving issues in a timely manner due to the reliance on phone and email support. This approach made it difficult to identify recurring queries and pain points of customers, resulting in dissatisfaction and frustration. The objective of the project was to build an interactive chatbot platform that reduces the number of recurring queries and provides valuable insights into customer needs and preferences. The identified pain points included extended wait times, inaccurate query resolution, and difficulties in navigating the website. Addressing these issues could enhance customer satisfaction and loyalty, leading to an improvement in WWF's overall reputation.
 
-
 ## Data Collection and Pre-processing
 
 **1. Data Collection:**   
@@ -36,11 +35,19 @@ After cleaning the data, we used SAS Enterprise Miner to identify the top 25 top
 We pre-processed the data by tokenizing sentences into individual words, performing lemmatization, and removing stop words. This transformed the raw text data into a more structured format suitable for analysis.
 
 ## The Text Analytics Model
-**Technologies Used for Text Analytics Model**  
-After extracting the 25 topics and matching them with the 10 general topic groups from the original dataset, we used SAS Enterprise Miner to create a text analytics model. Secondly, we used the Model Comparison feature of SAS so we could find the most accurate model. Finally, we also utilized the Score feature of the software so the model displays the probability that a customer inquiry is about a specific topic and assigns it the most probable one.
+
+**Technologies Used for Text Analytics Model** 
+
+![4127a8fef430552efa5474ef78551f1c](https://user-images.githubusercontent.com/131799834/234361104-e40d579a-4e6b-4564-96b6-72f292b16b80.png)
+
+We then proceeded to create the Text Analytics model. We want to create model that accurately predict the topic of a customer inquiry and assigns it one. To do this, we used SAS Enterprise Miner. Secondly, we used the Model Comparison feature of SAS so we could find the most accurate model. Finally, we also utilized the Score feature of the software so the model displays the probability that a customer inquiry is about a specific topic and assigns it the most probable one.
 
 **Results for the Text Analytics Model**
-After topic extraction and matching our collected 25 topics with the 10 general ones given by the client, we compared a neural network, decision tree, and regression model to see which would more reliably predict the topic of a customer inquiry based on its contents. Out of those three, regression was the most accurate model, featuring a KS-statistic of 0.003 and a KS probability cutoff of 0.016.
+
+![4127a8fef430552efa5474ef78551f1c](https://user-images.githubusercontent.com/131799834/234361560-bfe459f4-a993-4f11-b037-a68474d9e5ad.png)
+
+After topic extraction and matching our collected 25 topics with the 10 general ones given by the client, we compared a neural network, decision tree, and regression model to see which would more reliably predict the topic of a customer inquiry based on its contents. Out of those three, regression was the most accurate model, featuring a KS-statistic of 0.133 and a KS probability cutoff of 0.295.
+
 The text analytics model also uses live scoring to identify the topic of a customer inquiry. The full documentation of the model and the live scoring results can be found in the Appendix. Full integration of the text analytics model into the chatbot is a work in progress.
 
 ## The Chatbot
