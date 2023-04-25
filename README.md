@@ -128,8 +128,11 @@ To continuously build the chatbot’s knowledge base, it will be useful to conne
 The chatbot may collect user data such as personal information or location, either on purpose or by accident, depending on the customer query and input. WWF will need a secure database to store these data to ensure they are encrypted and properly stored. Irrelevant personal information should be erased from the database. 
 
 **2. Chatbot response accuracy:**
-As the chatbot requires and depends on learning from the knowledge base to provide its responses, its accuracy is highly dependent on the quality and completeness of the information provided to it. There is a risk of the chatbot providing inaccurate information or inappropriate responses if the data collected is not monitored, reviewed and cleaned. Inaccurate or inappropriate responses could harm the brand reputation. 
+As the chatbot requires and depends on learning from the knowledge base to provide its responses, its accuracy is highly dependent on the quality and completeness of the information provided to it. There is a risk of the chatbot providing inaccurate information or inappropriate responses if the data collected is not monitored, reviewed and cleaned. Inaccurate or inappropriate responses could lead to misunderstandings and confusion, harm the brand reputation. 
 
-**3. Technical issues:**
-The chatbot may fail to operate properly due to technical issues, which could lead to frustrated users. This could be solved by assigned dedicated team member(s) to monitor for any technical issues. 
+**3. MLimited Ability to Handle Complex Situations:**
+Chatbots may have difficulty dealing with complex customer queries or issues that require human intervention and problem-solving skills.
+
+**4. Maintenance and Updates:**
+Chatbots require regular maintenance and updates to ensure they continue to function properly and provide accurate responses. Failure to do so can lead to a breakdown in the system and a negative impact on the customer experience.
 
