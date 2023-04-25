@@ -130,7 +130,7 @@ The chatbot may collect user data such as personal information or location, eith
 **2. Chatbot response accuracy:**
 As the chatbot requires and depends on learning from the knowledge base to provide its responses, its accuracy is highly dependent on the quality and completeness of the information provided to it. There is a risk of the chatbot providing inaccurate information or inappropriate responses if the data collected is not monitored, reviewed and cleaned. Inaccurate or inappropriate responses could lead to misunderstandings and confusion, harm the brand reputation. 
 
-**3. MLimited Ability to Handle Complex Situations:**
+**3. Limited Ability to Handle Complex Situations:**
 Chatbots may have difficulty dealing with complex customer queries or issues that require human intervention and problem-solving skills.
 
 **4. Maintenance and Updates:**
