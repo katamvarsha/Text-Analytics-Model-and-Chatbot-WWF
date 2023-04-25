@@ -1,0 +1,943 @@
+*------------------------------------------------------------*
+User:                u63196051
+Date:                20 April 2023
+Time:                16:13:33
+*------------------------------------------------------------*
+* Training Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Variable Summary
+ 
+            Measurement    Frequency
+Role           Level         Count
+ 
+INPUT        INTERVAL          25
+REJECTED     INTERVAL          10
+TARGET       NOMINAL            1
+ 
+ 
+ 
+ 
+Model Events
+ 
+                                              Number
+                               Measurement      of
+Target          Event             Level       Levels      Order       Label
+ 
+Group     SUSTAINER REQUEST      NOMINAL        10      Descending
+ 
+ 
+ 
+ 
+Predicted and decision variables
+ 
+Type         Variable                            Label
+ 
+TARGET       Group
+PREDICTED    P_GroupSustainer_Request            Predicted: Group=Sustainer Request
+RESIDUAL     R_GroupSustainer_Request            Residual: Group=Sustainer Request
+PREDICTED    P_GroupRenewal_Issue                Predicted: Group=Renewal Issue
+RESIDUAL     R_GroupRenewal_Issue                Residual: Group=Renewal Issue
+PREDICTED    P_GroupRefund                       Predicted: Group=Refund
+RESIDUAL     R_GroupRefund                       Residual: Group=Refund
+PREDICTED    P_GroupMember_Inquiry               Predicted: Group=Member Inquiry
+RESIDUAL     R_GroupMember_Inquiry               Residual: Group=Member Inquiry
+PREDICTED    P_GroupMailed_info                  Predicted: Group=Mailed info
+RESIDUAL     R_GroupMailed_info                  Residual: Group=Mailed info
+PREDICTED    P_GroupDonation_Question            Predicted: Group=Donation Question
+RESIDUAL     R_GroupDonation_Question            Residual: Group=Donation Question
+PREDICTED    P_GroupChange_Solicitation_prefe    Predicted: Group=Change Solicitation prefere
+RESIDUAL     R_GroupChange_Solicitation_prefe    Residual: Group=Change Solicitation prefere
+PREDICTED    P_GroupChange_Personal_Informati    Predicted: Group=Change Personal Information
+RESIDUAL     R_GroupChange_Personal_Informati    Residual: Group=Change Personal Information
+PREDICTED    P_GroupBenefit_update               Predicted: Group=Benefit update
+RESIDUAL     R_GroupBenefit_update               Residual: Group=Benefit update
+PREDICTED    P_GroupBenefit_issue                Predicted: Group=Benefit issue
+RESIDUAL     R_GroupBenefit_issue                Residual: Group=Benefit issue
+FROM         F_Group                             From: Group
+INTO         I_Group                             Into: Group
+ 
+ 
+ 
+ 
+ 
+The DMREG Procedure
+ 
+                Model Information
+ 
+Training Data Set              WORK.EM_DMREG.VIEW
+DMDB Catalog                   WORK.REG_DMDB
+Target Variable                Group
+Target Measurement Level       Nominal
+Number of Target Categories    10
+Error                          MBernoulli
+Link Function                  Logit
+Number of Model Parameters     234
+Number of Observations         2094
+ 
+ 
+                    Target Profile
+ 
+ Ordered                                         Total
+   Value     Group                           Frequency
+ 
+       1     Sustainer Request                     605
+       2     Renewal Issue                         101
+       3     Refund                                 56
+       4     Member Inquiry                         12
+       5     Mailed info                            75
+       6     Donation Question                     296
+       7     Change Solicitation prefere           328
+       8     Change Personal Information           142
+       9     Benefit update                        281
+      10     Benefit issue                         198
+ 
+ 
+ 
+ 
+ 
+The DMREG Procedure
+ 
+Dual Quasi-Newton Optimization
+ 
+Dual Broyden - Fletcher - Goldfarb - Shanno Update (DBFGS)
+ 
+Parameter Estimates             234
+ 
+                                             Optimization Start
+ 
+Active Constraints                                  0  Objective Function                        4172.487523
+Max Abs Gradient Element                 19.407399982
+ 
+ 
+                                                                 Objective     Max Abs                Slope of
+                     Function         Active        Objective     Function    Gradient       Step       Search
+Iter     Restarts       Calls    Constraints         Function       Change     Element       Size    Direction
+ 
+   1            0           6              0             4070        102.2     13.6782      0.407       -357.1
+   2            0           9              0             4037      33.0111     19.2824      0.248       -406.0
+   3            0          12              0             4023      14.6955      6.4454      0.492      -70.410
+   4            0          14              0             4011      11.6628      2.8943      1.000      -18.624
+   5            0          19              0             4008       3.3555      2.2234      0.402      -15.016
+   6            0          22              0             4007       0.9730      1.5808      0.162       -9.781
+   7            0          24              0             4006       0.5091      3.2431      0.621       -3.920
+   8            0          26              0             4005       0.8565      2.3860      0.198       -6.437
+   9            0          28              0             4004       1.0695      1.9085      0.309       -6.927
+  10            0          30              0             4004       0.5511      1.9845      1.139       -2.348
+  11            0          32              0             4003       0.8064      0.7291      0.705       -1.955
+  12            0          35              0             4003       0.2282      0.5421      0.424       -1.421
+  13            0          37              0             4002       0.2651      0.5409      0.704       -0.811
+  14            0          39              0             4002       0.1680      1.3297      1.583       -0.419
+  15            0          41              0             4002       0.2520      0.8892      0.515       -0.816
+  16            0          43              0             4002       0.1399      0.9774      1.685       -0.374
+  17            0          45              0             4002       0.2014      0.5437      0.855       -0.409
+  18            0          47              0             4001       0.0976      0.9982      1.624       -0.310
+  19            0          51              0             4001       0.2330      0.3470      1.463       -0.333
+  20            0          54              0             4001       0.0827      0.3420      1.006       -0.175
+  21            0          56              0             4001       0.1215      0.1914      0.848       -0.244
+ 
+                                            Optimization Results
+ 
+Iterations                                         21  Function Calls                                     58
+Gradient Calls                                     26  Active Constraints                                  0
+Objective Function                       4001.0036459  Max Abs Gradient Element                 0.1914104535
+Slope of Search Direction                -0.244021722
+ 
+Convergence criterion (FCONV=0.0001) satisfied.
+ 
+NOTE: At least one element of the gradient is greater than 1e-3.
+ 
+ 
+ 
+     Likelihood Ratio Test for Global Null Hypothesis: BETA=0
+ 
+     -2 Log Likelihood          Likelihood
+  Intercept     Intercept &          Ratio
+       Only      Covariates     Chi-Square       DF     Pr > ChiSq
+ 
+   8344.975        8002.007       342.9678      225         <.0001
+ 
+ 
+            Type 3 Analysis of Effects
+ 
+                                 Wald
+Effect               DF    Chi-Square    Pr > ChiSq
+ 
+TextTopic_raw1        9        5.2461        0.8123
+TextTopic_raw10       9       22.4174        0.0076
+TextTopic_raw11       9       10.9395        0.2799
+TextTopic_raw12       9       22.0489        0.0087
+TextTopic_raw13       9       12.2773        0.1981
+TextTopic_raw14       9       11.9057        0.2187
+TextTopic_raw15       9        4.6783        0.8614
+TextTopic_raw16       9       10.4757        0.3134
+TextTopic_raw17       9       14.0559        0.1204
+TextTopic_raw18       9        9.5453        0.3885
+TextTopic_raw19       9       15.1797        0.0861
+TextTopic_raw2        9       25.3560        0.0026
+TextTopic_raw20       9        9.9589        0.3538
+TextTopic_raw21       9       10.7682        0.2919
+TextTopic_raw22       9        4.5996        0.8677
+TextTopic_raw23       9       14.6667        0.1005
+TextTopic_raw24       9       15.7817        0.0716
+TextTopic_raw25       9       12.2807        0.1979
+TextTopic_raw3        9        9.8334        0.3641
+TextTopic_raw4        9       11.2676        0.2578
+TextTopic_raw5        9        6.5129        0.6877
+TextTopic_raw6        9        5.4580        0.7927
+TextTopic_raw7        9        6.5085        0.6881
+TextTopic_raw8        9        8.4258        0.4919
+TextTopic_raw9        9       10.8145        0.2886
+ 
+ 
+                                                            Analysis of Maximum Likelihood Estimates
+ 
+                                                                                                Standard          Wald                  Standardized
+Parameter                                      Group                          DF    Estimate       Error    Chi-Square    Pr > ChiSq        Estimate    Exp(Est)
+ 
+Intercept                                      Sustainer Request               1      1.1460      0.1692         45.88        <.0001                       3.146
+Intercept                                      Renewal Issue                   1     -0.5339      0.2475          4.65        0.0310                       0.586
+Intercept                                      Refund                          1     -1.2963      0.3205         16.36        <.0001                       0.274
+Intercept                                      Member Inquiry                  1     -4.0326      0.8514         22.43        <.0001                       0.018
+Intercept                                      Mailed info                     1     -1.1639      0.2882         16.31        <.0001                       0.312
+Intercept                                      Donation Question               1      0.3563      0.1895          3.54        0.0600                       1.428
+Intercept                                      Change Solicitation prefere     1      0.6542      0.1832         12.75        0.0004                       1.924
+Intercept                                      Change Personal Information     1    -0.00701      0.2187          0.00        0.9744                       0.993
+Intercept                                      Benefit update                  1      0.3304      0.1915          2.98        0.0844                       1.392
+TextTopic_raw1                                 Sustainer Request               1     -1.6966      0.9016          3.54        0.0599         -0.0808       0.183
+TextTopic_raw1                                 Renewal Issue                   1     -2.1118      2.0142          1.10        0.2944         -0.1006       0.121
+TextTopic_raw1                                 Refund                          1      0.5766      2.1344          0.07        0.7870          0.0275       1.780
+TextTopic_raw1                                 Member Inquiry                  1     -1.2901      4.3307          0.09        0.7658         -0.0615       0.275
+TextTopic_raw1                                 Mailed info                     1     -1.1890      1.7338          0.47        0.4929         -0.0566       0.305
+TextTopic_raw1                                 Donation Question               1     -1.0327      0.9817          1.11        0.2928         -0.0492       0.356
+TextTopic_raw1                                 Change Solicitation prefere     1     -1.6588      1.0340          2.57        0.1086         -0.0790       0.190
+TextTopic_raw1                                 Change Personal Information     1     -1.7627      1.5106          1.36        0.2433         -0.0840       0.172
+TextTopic_raw1                                 Benefit update                  1     -1.2175      0.9989          1.49        0.2229         -0.0580       0.296
+TextTopic_raw10                                Sustainer Request               1      0.9774      1.1574          0.71        0.3984          0.0397       2.657
+TextTopic_raw10                                Renewal Issue                   1     -2.6361      1.9507          1.83        0.1766         -0.1070       0.072
+TextTopic_raw10                                Refund                          1      3.4694      2.0830          2.77        0.0958          0.1408      32.118
+TextTopic_raw10                                Member Inquiry                  1     -4.8403      7.0045          0.48        0.4895         -0.1964       0.008
+TextTopic_raw10                                Mailed info                     1     -6.2177      2.9560          4.42        0.0354         -0.2523       0.002
+TextTopic_raw10                                Donation Question               1     -1.3294      1.3907          0.91        0.3391         -0.0539       0.265
+TextTopic_raw10                                Change Solicitation prefere     1     -1.0752      1.3360          0.65        0.4209         -0.0436       0.341
+TextTopic_raw10                                Change Personal Information     1      0.0373      1.5366          0.00        0.9806         0.00152       1.038
+TextTopic_raw10                                Benefit update                  1     -2.4584      1.4941          2.71        0.0999         -0.0998       0.086
+TextTopic_raw11                                Sustainer Request               1      2.3224      1.9114          1.48        0.2244          0.0907      10.200
+TextTopic_raw11                                Renewal Issue                   1      3.8660      2.1993          3.09        0.0788          0.1509      47.749
+TextTopic_raw11                                Refund                          1     -3.1741      5.3001          0.36        0.5492         -0.1239       0.042
+TextTopic_raw11                                Member Inquiry                  1      7.4474      2.8841          6.67        0.0098          0.2908     999.000
+TextTopic_raw11                                Mailed info                     1      2.4729      2.6447          0.87        0.3498          0.0966      11.857
+TextTopic_raw11                                Donation Question               1      3.7441      1.9104          3.84        0.0500          0.1462      42.273
+TextTopic_raw11                                Change Solicitation prefere     1      2.9179      1.9498          2.24        0.1345          0.1139      18.503
+TextTopic_raw11                                Change Personal Information     1      2.6292      2.3224          1.28        0.2576          0.1026      13.862
+TextTopic_raw11                                Benefit update                  1      3.4317      1.9344          3.15        0.0761          0.1340      30.928
+TextTopic_raw12                                Sustainer Request               1      1.6467      1.8067          0.83        0.3621          0.0702       5.190
+TextTopic_raw12                                Renewal Issue                   1      5.2048      1.8461          7.95        0.0048          0.2218     182.146
+TextTopic_raw12                                Refund                          1      3.4138      2.3725          2.07        0.1502          0.1455      30.380
+TextTopic_raw12                                Member Inquiry                  1      5.6088      3.4673          2.62        0.1057          0.2391     272.814
+TextTopic_raw12                                Mailed info                     1      3.5411      2.1853          2.63        0.1052          0.1509      34.504
+TextTopic_raw12                                Donation Question               1      3.5690      1.8043          3.91        0.0479          0.1521      35.481
+TextTopic_raw12                                Change Solicitation prefere     1      2.5217      1.8418          1.87        0.1710          0.1075      12.450
+TextTopic_raw12                                Change Personal Information     1      1.0969      2.2073          0.25        0.6192          0.0468       2.995
+TextTopic_raw12                                Benefit update                  1      0.9121      2.0572          0.20        0.6575          0.0389       2.490
+TextTopic_raw13                                Sustainer Request               1     -0.6051      1.2611          0.23        0.6313         -0.0233       0.546
+TextTopic_raw13                                Renewal Issue                   1     -2.0385      2.3579          0.75        0.3873         -0.0783       0.130
+TextTopic_raw13                                Refund                          1      2.3558      1.7806          1.75        0.1858          0.0905      10.546
+TextTopic_raw13                                Member Inquiry                  1    -12.5839     17.2050          0.53        0.4645         -0.4836       0.000
+TextTopic_raw13                                Mailed info                     1      1.8745      1.9436          0.93        0.3348          0.0720       6.517
+TextTopic_raw13                                Donation Question               1      0.7360      1.3429          0.30        0.5837          0.0283       2.088
+TextTopic_raw13                                Change Solicitation prefere     1      1.3500      1.2588          1.15        0.2835          0.0519       3.857
+TextTopic_raw13                                Change Personal Information     1     -1.1487      1.7893          0.41        0.5209         -0.0441       0.317
+TextTopic_raw13                                Benefit update                  1     -1.1795      1.5169          0.60        0.4368         -0.0453       0.307
+TextTopic_raw14                                Sustainer Request               1     -1.1500      1.1293          1.04        0.3085         -0.0456       0.317
+TextTopic_raw14                                Renewal Issue                   1      0.4961      2.2146          0.05        0.8228          0.0197       1.642
+TextTopic_raw14                                Refund                          1      0.0506      2.9787          0.00        0.9864         0.00201       1.052
+TextTopic_raw14                                Member Inquiry                  1      1.5654      4.6930          0.11        0.7387          0.0621       4.784
+TextTopic_raw14                                Mailed info                     1      2.5187      1.6013          2.47        0.1157          0.0999      12.412
+TextTopic_raw14                                Donation Question               1     -0.9670      1.2859          0.57        0.4520         -0.0384       0.380
+TextTopic_raw14                                Change Solicitation prefere     1     -1.4498      1.2982          1.25        0.2641         -0.0575       0.235
+TextTopic_raw14                                Change Personal Information     1      0.5060      1.6224          0.10        0.7551          0.0201       1.659
+TextTopic_raw14                                Benefit update                  1     -2.0848      1.3352          2.44        0.1184         -0.0827       0.124
+TextTopic_raw15                                Sustainer Request               1     -0.7572      1.2654          0.36        0.5496         -0.0277       0.469
+TextTopic_raw15                                Renewal Issue                   1      0.4438      1.8247          0.06        0.8079          0.0162       1.559
+TextTopic_raw15                                Refund                          1     -1.4467      2.7409          0.28        0.5976         -0.0530       0.235
+TextTopic_raw15                                Member Inquiry                  1      1.9059      3.7695          0.26        0.6131          0.0698       6.726
+TextTopic_raw15                                Mailed info                     1     -3.7039      3.4100          1.18        0.2774         -0.1356       0.025
+TextTopic_raw15                                Donation Question               1     -0.1494      1.3351          0.01        0.9109        -0.00547       0.861
+TextTopic_raw15                                Change Solicitation prefere     1      0.1678      1.3254          0.02        0.8992         0.00615       1.183
+TextTopic_raw15                                Change Personal Information     1     -2.4315      2.0643          1.39        0.2388         -0.0890       0.088
+TextTopic_raw15                                Benefit update                  1      0.3094      1.3377          0.05        0.8171          0.0113       1.363
+TextTopic_raw16                                Sustainer Request               1      0.4786      1.2638          0.14        0.7049          0.0187       1.614
+TextTopic_raw16                                Renewal Issue                   1     -6.3775      5.4862          1.35        0.2450         -0.2489       0.002
+TextTopic_raw16                                Refund                          1      0.8113      2.0107          0.16        0.6866          0.0317       2.251
+TextTopic_raw16                                Member Inquiry                  1      3.4534      2.6526          1.69        0.1930          0.1348      31.606
+TextTopic_raw16                                Mailed info                     1     -7.8740      8.1154          0.94        0.3319         -0.3073       0.000
+TextTopic_raw16                                Donation Question               1     -1.1062      1.7227          0.41        0.5208         -0.0432       0.331
+TextTopic_raw16                                Change Solicitation prefere     1      1.5805      1.2741          1.54        0.2148          0.0617       4.857
+TextTopic_raw16                                Change Personal Information     1     -0.2063      1.7137          0.01        0.9042        -0.00805       0.814
+TextTopic_raw16                                Benefit update                  1     -0.7186      1.5809          0.21        0.6494         -0.0280       0.487
+TextTopic_raw17                                Sustainer Request               1     -0.1532      1.0452          0.02        0.8834        -0.00598       0.858
+TextTopic_raw17                                Renewal Issue                   1     -2.0344      2.3441          0.75        0.3855         -0.0794       0.131
+TextTopic_raw17                                Refund                          1    -12.7775      6.1654          4.30        0.0382         -0.4986       0.000
+TextTopic_raw17                                Member Inquiry                  1      0.5136      4.4537          0.01        0.9082          0.0200       1.671
+TextTopic_raw17                                Mailed info                     1      0.1094      1.8155          0.00        0.9520         0.00427       1.116
+TextTopic_raw17                                Donation Question               1     -0.5317      1.2106          0.19        0.6605         -0.0208       0.588
+TextTopic_raw17                                Change Solicitation prefere     1     -1.7654      1.3568          1.69        0.1932         -0.0689       0.171
+TextTopic_raw17                                Change Personal Information     1    -10.2537      3.8756          7.00        0.0082         -0.4001       0.000
+TextTopic_raw17                                Benefit update                  1      0.2927      1.1476          0.07        0.7987          0.0114       1.340
+TextTopic_raw18                                Sustainer Request               1     -0.5170      1.2370          0.17        0.6760         -0.0202       0.596
+TextTopic_raw18                                Renewal Issue                   1      1.0370      2.0181          0.26        0.6073          0.0405       2.821
+TextTopic_raw18                                Refund                          1      1.5936      2.8866          0.30        0.5809          0.0623       4.921
+TextTopic_raw18                                Member Inquiry                  1     -0.5455      5.6886          0.01        0.9236         -0.0213       0.580
+TextTopic_raw18                                Mailed info                     1      1.6662      1.9367          0.74        0.3896          0.0651       5.292
+TextTopic_raw18                                Donation Question               1      1.9928      1.2135          2.70        0.1005          0.0779       7.336
+TextTopic_raw18                                Change Solicitation prefere     1     -0.4465      1.4302          0.10        0.7549         -0.0175       0.640
+TextTopic_raw18                                Change Personal Information     1      0.6640      1.8383          0.13        0.7179          0.0260       1.943
+TextTopic_raw18                                Benefit update                  1      0.7251      1.3248          0.30        0.5841          0.0284       2.065
+TextTopic_raw19                                Sustainer Request               1      3.5871      2.4624          2.12        0.1452          0.1395      36.131
+TextTopic_raw19                                Renewal Issue                   1    -11.1630     10.5533          1.12        0.2902         -0.4340       0.000
+TextTopic_raw19                                Refund                          1    -10.9631     14.2988          0.59        0.4433         -0.4262       0.000
+TextTopic_raw19                                Member Inquiry                  1      8.0714      3.0333          7.08        0.0078          0.3138     999.000
+TextTopic_raw19                                Mailed info                     1      2.3191      3.1066          0.56        0.4554          0.0902      10.167
+TextTopic_raw19                                Donation Question               1      3.0925      2.5460          1.48        0.2245          0.1202      22.032
+TextTopic_raw19                                Change Solicitation prefere     1      1.8110      2.6342          0.47        0.4918          0.0704       6.117
+TextTopic_raw19                                Change Personal Information     1     -2.8254      5.7381          0.24        0.6224         -0.1098       0.059
+TextTopic_raw19                                Benefit update                  1      2.9745      2.5471          1.36        0.2429          0.1156      19.579
+TextTopic_raw2                                 Sustainer Request               1     -1.6454      0.9231          3.18        0.0747         -0.0878       0.193
+TextTopic_raw2                                 Renewal Issue                   1      2.0095      0.9574          4.41        0.0358          0.1073       7.459
+TextTopic_raw2                                 Refund                          1     -3.4178      2.9223          1.37        0.2422         -0.1824       0.033
+TextTopic_raw2                                 Member Inquiry                  1      1.0386      3.3768          0.09        0.7584          0.0554       2.825
+TextTopic_raw2                                 Mailed info                     1      0.0820      1.3974          0.00        0.9532         0.00438       1.085
+TextTopic_raw2                                 Donation Question               1     -0.5820      0.9680          0.36        0.5477         -0.0311       0.559
+TextTopic_raw2                                 Change Solicitation prefere     1     -1.4083      1.0114          1.94        0.1638         -0.0752       0.245
+TextTopic_raw2                                 Change Personal Information     1     -1.2230      1.2589          0.94        0.3313         -0.0653       0.294
+TextTopic_raw2                                 Benefit update                  1      0.1221      0.9535          0.02        0.8981         0.00652       1.130
+TextTopic_raw20                                Sustainer Request               1     -1.1976      1.4398          0.69        0.4055         -0.0414       0.302
+TextTopic_raw20                                Renewal Issue                   1      2.2318      1.9902          1.26        0.2621          0.0772       9.317
+TextTopic_raw20                                Refund                          1     -4.8759      4.8831          1.00        0.3180         -0.1686       0.008
+TextTopic_raw20                                Member Inquiry                  1      4.6336      3.3781          1.88        0.1702          0.1602     102.887
+TextTopic_raw20                                Mailed info                     1      0.0900      2.3059          0.00        0.9689         0.00311       1.094
+TextTopic_raw20                                Donation Question               1      0.0536      1.6005          0.00        0.9733         0.00185       1.055
+TextTopic_raw20                                Change Solicitation prefere     1      0.3702      1.5132          0.06        0.8067          0.0128       1.448
+TextTopic_raw20                                Change Personal Information     1      1.1102      1.8171          0.37        0.5412          0.0384       3.035
+TextTopic_raw20                                Benefit update                  1      1.1660      1.5097          0.60        0.4399          0.0403       3.209
+TextTopic_raw21                                Sustainer Request               1      0.1344      1.2654          0.01        0.9154         0.00468       1.144
+TextTopic_raw21                                Renewal Issue                   1     -3.5483      3.2510          1.19        0.2751         -0.1237       0.029
+TextTopic_raw21                                Refund                          1     -0.1862      2.4192          0.01        0.9386        -0.00649       0.830
+TextTopic_raw21                                Member Inquiry                  1      5.5745      2.5347          4.84        0.0279          0.1943     263.629
+TextTopic_raw21                                Mailed info                     1      1.1296      1.7857          0.40        0.5270          0.0394       3.094
+TextTopic_raw21                                Donation Question               1     -1.3964      1.6484          0.72        0.3969         -0.0487       0.247
+TextTopic_raw21                                Change Solicitation prefere     1     -1.0060      1.5186          0.44        0.5077         -0.0351       0.366
+TextTopic_raw21                                Change Personal Information     1     -1.2061      1.8752          0.41        0.5201         -0.0420       0.299
+TextTopic_raw21                                Benefit update                  1     -0.5444      1.5325          0.13        0.7224         -0.0190       0.580
+TextTopic_raw22                                Sustainer Request               1      1.7456      1.4720          1.41        0.2357          0.0695       5.729
+TextTopic_raw22                                Renewal Issue                   1     -1.1256      3.1669          0.13        0.7223         -0.0448       0.324
+TextTopic_raw22                                Refund                          1      1.7028      2.4206          0.49        0.4818          0.0678       5.489
+TextTopic_raw22                                Member Inquiry                  1      5.2303      3.3893          2.38        0.1228          0.2083     186.843
+TextTopic_raw22                                Mailed info                     1      1.6409      2.1808          0.57        0.4518          0.0654       5.160
+TextTopic_raw22                                Donation Question               1      1.9054      1.5430          1.52        0.2169          0.0759       6.722
+TextTopic_raw22                                Change Solicitation prefere     1      2.1739      1.5440          1.98        0.1591          0.0866       8.793
+TextTopic_raw22                                Change Personal Information     1      1.1726      1.9704          0.35        0.5518          0.0467       3.230
+TextTopic_raw22                                Benefit update                  1      1.3644      1.6398          0.69        0.4054          0.0543       3.913
+TextTopic_raw23                                Sustainer Request               1     -0.5868      2.1669          0.07        0.7865         -0.0204       0.556
+TextTopic_raw23                                Renewal Issue                   1      1.6673      2.6773          0.39        0.5335          0.0578       5.298
+TextTopic_raw23                                Refund                          1      5.7416      2.5036          5.26        0.0218          0.1991     311.556
+TextTopic_raw23                                Member Inquiry                  1      1.6037      6.7450          0.06        0.8121          0.0556       4.971
+TextTopic_raw23                                Mailed info                     1      1.1932      3.2441          0.14        0.7130          0.0414       3.298
+TextTopic_raw23                                Donation Question               1      2.8739      2.0471          1.97        0.1604          0.0997      17.707
+TextTopic_raw23                                Change Solicitation prefere     1      2.9514      2.0087          2.16        0.1418          0.1024      19.132
+TextTopic_raw23                                Change Personal Information     1      3.5759      2.1505          2.77        0.0963          0.1240      35.728
+TextTopic_raw23                                Benefit update                  1      2.7109      2.0718          1.71        0.1907          0.0940      15.042
+TextTopic_raw24                                Sustainer Request               1     -0.4632      1.5809          0.09        0.7695         -0.0153       0.629
+TextTopic_raw24                                Renewal Issue                   1      3.7184      2.1644          2.95        0.0858          0.1231      41.198
+TextTopic_raw24                                Refund                          1      6.9508      3.0908          5.06        0.0245          0.2302     999.000
+TextTopic_raw24                                Member Inquiry                  1      5.2765      4.9480          1.14        0.2862          0.1747     195.690
+TextTopic_raw24                                Mailed info                     1      4.3448      2.2493          3.73        0.0534          0.1439      77.075
+TextTopic_raw24                                Donation Question               1      1.3749      1.6956          0.66        0.4175          0.0455       3.955
+TextTopic_raw24                                Change Solicitation prefere     1      0.6563      1.6919          0.15        0.6981          0.0217       1.928
+TextTopic_raw24                                Change Personal Information     1      0.5851      2.1860          0.07        0.7890          0.0194       1.795
+TextTopic_raw24                                Benefit update                  1      1.0085      1.7198          0.34        0.5576          0.0334       2.741
+TextTopic_raw25                                Sustainer Request               1     -2.9448      1.2121          5.90        0.0151         -0.1016       0.053
+TextTopic_raw25                                Renewal Issue                   1     -0.2438      1.7525          0.02        0.8894        -0.00841       0.784
+TextTopic_raw25                                Refund                          1      0.1303      2.1171          0.00        0.9509         0.00449       1.139
+TextTopic_raw25                                Member Inquiry                  1      0.4777      3.8457          0.02        0.9011          0.0165       1.612
+TextTopic_raw25                                Mailed info                     1     -5.3385      3.5388          2.28        0.1314         -0.1841       0.005
+TextTopic_raw25                                Donation Question               1     -0.9471      1.2304          0.59        0.4414         -0.0327       0.388
+TextTopic_raw25                                Change Solicitation prefere     1     -3.4062      1.4407          5.59        0.0181         -0.1175       0.033
+TextTopic_raw25                                Change Personal Information     1     -1.8840      1.8364          1.05        0.3049         -0.0650       0.152
+TextTopic_raw25                                Benefit update                  1     -2.3515      1.4057          2.80        0.0944         -0.0811       0.095
+TextTopic_raw3                                 Sustainer Request               1      0.2907      0.9327          0.10        0.7553          0.0147       1.337
+TextTopic_raw3                                 Renewal Issue                   1     0.00855      1.7707          0.00        0.9961        0.000432       1.009
+TextTopic_raw3                                 Refund                          1      2.6185      2.1141          1.53        0.2155          0.1322      13.716
+TextTopic_raw3                                 Member Inquiry                  1     -2.6382      5.0559          0.27        0.6018         -0.1332       0.071
+TextTopic_raw3                                 Mailed info                     1      1.2261      1.4989          0.67        0.4134          0.0619       3.408
+TextTopic_raw3                                 Donation Question               1     -1.3058      1.1197          1.36        0.2435         -0.0659       0.271
+TextTopic_raw3                                 Change Solicitation prefere     1     -1.2589      1.0784          1.36        0.2431         -0.0635       0.284
+TextTopic_raw3                                 Change Personal Information     1     -0.4504      1.3016          0.12        0.7293         -0.0227       0.637
+TextTopic_raw3                                 Benefit update                  1     -0.6371      1.1027          0.33        0.5634         -0.0322       0.529
+TextTopic_raw4                                 Sustainer Request               1     -0.7484      0.8335          0.81        0.3692         -0.0384       0.473
+TextTopic_raw4                                 Renewal Issue                   1      0.0127      1.4581          0.00        0.9931        0.000651       1.013
+TextTopic_raw4                                 Refund                          1      1.6185      1.1491          1.98        0.1590          0.0830       5.046
+TextTopic_raw4                                 Member Inquiry                  1    -12.7382     16.9737          0.56        0.4530         -0.6529       0.000
+TextTopic_raw4                                 Mailed info                     1     -0.7527      1.7889          0.18        0.6739         -0.0386       0.471
+TextTopic_raw4                                 Donation Question               1     -0.8295      1.0060          0.68        0.4096         -0.0425       0.436
+TextTopic_raw4                                 Change Solicitation prefere     1     -1.5790      1.0653          2.20        0.1383         -0.0809       0.206
+TextTopic_raw4                                 Change Personal Information     1     -0.3708      1.1565          0.10        0.7485         -0.0190       0.690
+TextTopic_raw4                                 Benefit update                  1      0.5532      0.8557          0.42        0.5180          0.0284       1.739
+TextTopic_raw5                                 Sustainer Request               1     -0.2204      0.8215          0.07        0.7885         -0.0113       0.802
+TextTopic_raw5                                 Renewal Issue                   1    -10.3549     10.1396          1.04        0.3071         -0.5322       0.000
+TextTopic_raw5                                 Refund                          1    -12.4691     22.1738          0.32        0.5739         -0.6409       0.000
+TextTopic_raw5                                 Member Inquiry                  1      3.0320      2.0216          2.25        0.1337          0.1558      20.739
+TextTopic_raw5                                 Mailed info                     1     0.00873      1.2824          0.00        0.9946        0.000449       1.009
+TextTopic_raw5                                 Donation Question               1     -0.8458      0.9904          0.73        0.3931         -0.0435       0.429
+TextTopic_raw5                                 Change Solicitation prefere     1     -0.6840      0.9530          0.52        0.4729         -0.0352       0.505
+TextTopic_raw5                                 Change Personal Information     1      0.3501      1.0274          0.12        0.7333          0.0180       1.419
+TextTopic_raw5                                 Benefit update                  1     -0.5337      0.9757          0.30        0.5844         -0.0274       0.586
+TextTopic_raw6                                 Sustainer Request               1     -0.0197      1.0812          0.00        0.9855        -0.00088       0.981
+TextTopic_raw6                                 Renewal Issue                   1      1.1833      2.0119          0.35        0.5564          0.0530       3.265
+TextTopic_raw6                                 Refund                          1     -9.1461      8.2674          1.22        0.2686         -0.4097       0.000
+TextTopic_raw6                                 Member Inquiry                  1      1.9522      3.3701          0.34        0.5624          0.0875       7.044
+TextTopic_raw6                                 Mailed info                     1     -1.5630      2.0508          0.58        0.4460         -0.0700       0.210
+TextTopic_raw6                                 Donation Question               1     -0.7480      1.2930          0.33        0.5630         -0.0335       0.473
+TextTopic_raw6                                 Change Solicitation prefere     1      0.1140      1.1856          0.01        0.9234         0.00511       1.121
+TextTopic_raw6                                 Change Personal Information     1     -1.1011      1.7155          0.41        0.5210         -0.0493       0.332
+TextTopic_raw6                                 Benefit update                  1      0.7708      1.1797          0.43        0.5135          0.0345       2.161
+TextTopic_raw7                                 Sustainer Request               1     -0.8410      1.1716          0.52        0.4729         -0.0317       0.431
+TextTopic_raw7                                 Renewal Issue                   1     -5.7079      3.2697          3.05        0.0809         -0.2150       0.003
+TextTopic_raw7                                 Refund                          1      1.1403      2.4345          0.22        0.6395          0.0429       3.128
+TextTopic_raw7                                 Member Inquiry                  1      0.1336      3.7829          0.00        0.9718         0.00503       1.143
+TextTopic_raw7                                 Mailed info                     1     -0.0537      2.1435          0.00        0.9800        -0.00202       0.948
+TextTopic_raw7                                 Donation Question               1      0.3201      1.2835          0.06        0.8031          0.0121       1.377
+TextTopic_raw7                                 Change Solicitation prefere     1     -0.7404      1.3321          0.31        0.5784         -0.0279       0.477
+TextTopic_raw7                                 Change Personal Information     1     -2.3576      1.9973          1.39        0.2378         -0.0888       0.095
+TextTopic_raw7                                 Benefit update                  1      0.1088      1.2918          0.01        0.9329         0.00410       1.115
+TextTopic_raw8                                 Sustainer Request               1      0.0934      1.1661          0.01        0.9361         0.00392       1.098
+TextTopic_raw8                                 Renewal Issue                   1      0.1530      1.6127          0.01        0.9244         0.00642       1.165
+TextTopic_raw8                                 Refund                          1      1.9697      1.7208          1.31        0.2524          0.0826       7.169
+TextTopic_raw8                                 Member Inquiry                  1      4.5285      2.0336          4.96        0.0260          0.1900      92.616
+TextTopic_raw8                                 Mailed info                     1      0.6400      1.9835          0.10        0.7470          0.0269       1.896
+TextTopic_raw8                                 Donation Question               1     -0.6456      1.3844          0.22        0.6410         -0.0271       0.524
+TextTopic_raw8                                 Change Solicitation prefere     1      0.3269      1.2357          0.07        0.7914          0.0137       1.387
+TextTopic_raw8                                 Change Personal Information     1      0.7172      1.4734          0.24        0.6264          0.0301       2.049
+TextTopic_raw8                                 Benefit update                  1      0.4632      1.2702          0.13        0.7154          0.0194       1.589
+TextTopic_raw9                                 Sustainer Request               1      1.4845      1.2394          1.43        0.2310          0.0612       4.413
+TextTopic_raw9                                 Renewal Issue                   1      0.4531      1.9260          0.06        0.8140          0.0187       1.573
+TextTopic_raw9                                 Refund                          1     -2.0073      3.2555          0.38        0.5375         -0.0828       0.134
+TextTopic_raw9                                 Member Inquiry                  1    -41.2898     27.8945          2.19        0.1388         -1.7022       0.000
+TextTopic_raw9                                 Mailed info                     1      2.7916      1.6735          2.78        0.0953          0.1151      16.308
+TextTopic_raw9                                 Donation Question               1      1.4566      1.3756          1.12        0.2897          0.0600       4.291
+TextTopic_raw9                                 Change Solicitation prefere     1     -0.2169      1.4398          0.02        0.8803        -0.00894       0.805
+TextTopic_raw9                                 Change Personal Information     1     -0.5988      1.7921          0.11        0.7383         -0.0247       0.549
+TextTopic_raw9                                 Benefit update                  1      1.3544      1.3715          0.98        0.3234          0.0558       3.874
+ 
+ 
+                     Odds Ratio Estimates
+ 
+                                                          Point
+Effect                  Group                          Estimate
+ 
+TextTopic_raw1          Sustainer Request                 0.183
+TextTopic_raw1          Renewal Issue                     0.121
+TextTopic_raw1          Refund                            1.780
+TextTopic_raw1          Member Inquiry                    0.275
+TextTopic_raw1          Mailed info                       0.305
+TextTopic_raw1          Donation Question                 0.356
+TextTopic_raw1          Change Solicitation prefere       0.190
+TextTopic_raw1          Change Personal Information       0.172
+TextTopic_raw1          Benefit update                    0.296
+TextTopic_raw10         Sustainer Request                 2.657
+TextTopic_raw10         Renewal Issue                     0.072
+TextTopic_raw10         Refund                           32.118
+TextTopic_raw10         Member Inquiry                    0.008
+TextTopic_raw10         Mailed info                       0.002
+TextTopic_raw10         Donation Question                 0.265
+TextTopic_raw10         Change Solicitation prefere       0.341
+TextTopic_raw10         Change Personal Information       1.038
+TextTopic_raw10         Benefit update                    0.086
+TextTopic_raw11         Sustainer Request                10.200
+TextTopic_raw11         Renewal Issue                    47.749
+TextTopic_raw11         Refund                            0.042
+TextTopic_raw11         Member Inquiry                  999.000
+TextTopic_raw11         Mailed info                      11.857
+TextTopic_raw11         Donation Question                42.273
+TextTopic_raw11         Change Solicitation prefere      18.503
+TextTopic_raw11         Change Personal Information      13.862
+TextTopic_raw11         Benefit update                   30.928
+TextTopic_raw12         Sustainer Request                 5.190
+TextTopic_raw12         Renewal Issue                   182.146
+TextTopic_raw12         Refund                           30.380
+TextTopic_raw12         Member Inquiry                  272.814
+TextTopic_raw12         Mailed info                      34.504
+TextTopic_raw12         Donation Question                35.481
+TextTopic_raw12         Change Solicitation prefere      12.450
+TextTopic_raw12         Change Personal Information       2.995
+TextTopic_raw12         Benefit update                    2.490
+TextTopic_raw13         Sustainer Request                 0.546
+TextTopic_raw13         Renewal Issue                     0.130
+TextTopic_raw13         Refund                           10.546
+TextTopic_raw13         Member Inquiry                   <0.001
+TextTopic_raw13         Mailed info                       6.517
+TextTopic_raw13         Donation Question                 2.088
+TextTopic_raw13         Change Solicitation prefere       3.857
+TextTopic_raw13         Change Personal Information       0.317
+TextTopic_raw13         Benefit update                    0.307
+TextTopic_raw14         Sustainer Request                 0.317
+TextTopic_raw14         Renewal Issue                     1.642
+TextTopic_raw14         Refund                            1.052
+TextTopic_raw14         Member Inquiry                    4.784
+TextTopic_raw14         Mailed info                      12.412
+TextTopic_raw14         Donation Question                 0.380
+TextTopic_raw14         Change Solicitation prefere       0.235
+TextTopic_raw14         Change Personal Information       1.659
+TextTopic_raw14         Benefit update                    0.124
+TextTopic_raw15         Sustainer Request                 0.469
+TextTopic_raw15         Renewal Issue                     1.559
+TextTopic_raw15         Refund                            0.235
+TextTopic_raw15         Member Inquiry                    6.726
+TextTopic_raw15         Mailed info                       0.025
+TextTopic_raw15         Donation Question                 0.861
+TextTopic_raw15         Change Solicitation prefere       1.183
+TextTopic_raw15         Change Personal Information       0.088
+TextTopic_raw15         Benefit update                    1.363
+TextTopic_raw16         Sustainer Request                 1.614
+TextTopic_raw16         Renewal Issue                     0.002
+TextTopic_raw16         Refund                            2.251
+TextTopic_raw16         Member Inquiry                   31.606
+TextTopic_raw16         Mailed info                      <0.001
+TextTopic_raw16         Donation Question                 0.331
+TextTopic_raw16         Change Solicitation prefere       4.857
+TextTopic_raw16         Change Personal Information       0.814
+TextTopic_raw16         Benefit update                    0.487
+TextTopic_raw17         Sustainer Request                 0.858
+TextTopic_raw17         Renewal Issue                     0.131
+TextTopic_raw17         Refund                           <0.001
+TextTopic_raw17         Member Inquiry                    1.671
+TextTopic_raw17         Mailed info                       1.116
+TextTopic_raw17         Donation Question                 0.588
+TextTopic_raw17         Change Solicitation prefere       0.171
+TextTopic_raw17         Change Personal Information      <0.001
+TextTopic_raw17         Benefit update                    1.340
+TextTopic_raw18         Sustainer Request                 0.596
+TextTopic_raw18         Renewal Issue                     2.821
+TextTopic_raw18         Refund                            4.921
+TextTopic_raw18         Member Inquiry                    0.580
+TextTopic_raw18         Mailed info                       5.292
+TextTopic_raw18         Donation Question                 7.336
+TextTopic_raw18         Change Solicitation prefere       0.640
+TextTopic_raw18         Change Personal Information       1.943
+TextTopic_raw18         Benefit update                    2.065
+TextTopic_raw19         Sustainer Request                36.131
+TextTopic_raw19         Renewal Issue                    <0.001
+TextTopic_raw19         Refund                           <0.001
+TextTopic_raw19         Member Inquiry                  999.000
+TextTopic_raw19         Mailed info                      10.167
+TextTopic_raw19         Donation Question                22.032
+TextTopic_raw19         Change Solicitation prefere       6.117
+TextTopic_raw19         Change Personal Information       0.059
+TextTopic_raw19         Benefit update                   19.579
+TextTopic_raw2          Sustainer Request                 0.193
+TextTopic_raw2          Renewal Issue                     7.459
+TextTopic_raw2          Refund                            0.033
+TextTopic_raw2          Member Inquiry                    2.825
+TextTopic_raw2          Mailed info                       1.085
+TextTopic_raw2          Donation Question                 0.559
+TextTopic_raw2          Change Solicitation prefere       0.245
+TextTopic_raw2          Change Personal Information       0.294
+TextTopic_raw2          Benefit update                    1.130
+TextTopic_raw20         Sustainer Request                 0.302
+TextTopic_raw20         Renewal Issue                     9.317
+TextTopic_raw20         Refund                            0.008
+TextTopic_raw20         Member Inquiry                  102.887
+TextTopic_raw20         Mailed info                       1.094
+TextTopic_raw20         Donation Question                 1.055
+TextTopic_raw20         Change Solicitation prefere       1.448
+TextTopic_raw20         Change Personal Information       3.035
+TextTopic_raw20         Benefit update                    3.209
+TextTopic_raw21         Sustainer Request                 1.144
+TextTopic_raw21         Renewal Issue                     0.029
+TextTopic_raw21         Refund                            0.830
+TextTopic_raw21         Member Inquiry                  263.629
+TextTopic_raw21         Mailed info                       3.094
+TextTopic_raw21         Donation Question                 0.247
+TextTopic_raw21         Change Solicitation prefere       0.366
+TextTopic_raw21         Change Personal Information       0.299
+TextTopic_raw21         Benefit update                    0.580
+TextTopic_raw22         Sustainer Request                 5.729
+TextTopic_raw22         Renewal Issue                     0.324
+TextTopic_raw22         Refund                            5.489
+TextTopic_raw22         Member Inquiry                  186.843
+TextTopic_raw22         Mailed info                       5.160
+TextTopic_raw22         Donation Question                 6.722
+TextTopic_raw22         Change Solicitation prefere       8.793
+TextTopic_raw22         Change Personal Information       3.230
+TextTopic_raw22         Benefit update                    3.913
+TextTopic_raw23         Sustainer Request                 0.556
+TextTopic_raw23         Renewal Issue                     5.298
+TextTopic_raw23         Refund                          311.556
+TextTopic_raw23         Member Inquiry                    4.971
+TextTopic_raw23         Mailed info                       3.298
+TextTopic_raw23         Donation Question                17.707
+TextTopic_raw23         Change Solicitation prefere      19.132
+TextTopic_raw23         Change Personal Information      35.728
+TextTopic_raw23         Benefit update                   15.042
+TextTopic_raw24         Sustainer Request                 0.629
+TextTopic_raw24         Renewal Issue                    41.198
+TextTopic_raw24         Refund                          999.000
+TextTopic_raw24         Member Inquiry                  195.690
+TextTopic_raw24         Mailed info                      77.075
+TextTopic_raw24         Donation Question                 3.955
+TextTopic_raw24         Change Solicitation prefere       1.928
+TextTopic_raw24         Change Personal Information       1.795
+TextTopic_raw24         Benefit update                    2.741
+TextTopic_raw25         Sustainer Request                 0.053
+TextTopic_raw25         Renewal Issue                     0.784
+TextTopic_raw25         Refund                            1.139
+TextTopic_raw25         Member Inquiry                    1.612
+TextTopic_raw25         Mailed info                       0.005
+TextTopic_raw25         Donation Question                 0.388
+TextTopic_raw25         Change Solicitation prefere       0.033
+TextTopic_raw25         Change Personal Information       0.152
+TextTopic_raw25         Benefit update                    0.095
+TextTopic_raw3          Sustainer Request                 1.337
+TextTopic_raw3          Renewal Issue                     1.009
+TextTopic_raw3          Refund                           13.716
+TextTopic_raw3          Member Inquiry                    0.071
+TextTopic_raw3          Mailed info                       3.408
+TextTopic_raw3          Donation Question                 0.271
+TextTopic_raw3          Change Solicitation prefere       0.284
+TextTopic_raw3          Change Personal Information       0.637
+TextTopic_raw3          Benefit update                    0.529
+TextTopic_raw4          Sustainer Request                 0.473
+TextTopic_raw4          Renewal Issue                     1.013
+TextTopic_raw4          Refund                            5.046
+TextTopic_raw4          Member Inquiry                   <0.001
+TextTopic_raw4          Mailed info                       0.471
+TextTopic_raw4          Donation Question                 0.436
+TextTopic_raw4          Change Solicitation prefere       0.206
+TextTopic_raw4          Change Personal Information       0.690
+TextTopic_raw4          Benefit update                    1.739
+TextTopic_raw5          Sustainer Request                 0.802
+TextTopic_raw5          Renewal Issue                    <0.001
+TextTopic_raw5          Refund                           <0.001
+TextTopic_raw5          Member Inquiry                   20.739
+TextTopic_raw5          Mailed info                       1.009
+TextTopic_raw5          Donation Question                 0.429
+TextTopic_raw5          Change Solicitation prefere       0.505
+TextTopic_raw5          Change Personal Information       1.419
+TextTopic_raw5          Benefit update                    0.586
+TextTopic_raw6          Sustainer Request                 0.981
+TextTopic_raw6          Renewal Issue                     3.265
+TextTopic_raw6          Refund                           <0.001
+TextTopic_raw6          Member Inquiry                    7.044
+TextTopic_raw6          Mailed info                       0.210
+TextTopic_raw6          Donation Question                 0.473
+TextTopic_raw6          Change Solicitation prefere       1.121
+TextTopic_raw6          Change Personal Information       0.332
+TextTopic_raw6          Benefit update                    2.161
+TextTopic_raw7          Sustainer Request                 0.431
+TextTopic_raw7          Renewal Issue                     0.003
+TextTopic_raw7          Refund                            3.128
+TextTopic_raw7          Member Inquiry                    1.143
+TextTopic_raw7          Mailed info                       0.948
+TextTopic_raw7          Donation Question                 1.377
+TextTopic_raw7          Change Solicitation prefere       0.477
+TextTopic_raw7          Change Personal Information       0.095
+TextTopic_raw7          Benefit update                    1.115
+TextTopic_raw8          Sustainer Request                 1.098
+TextTopic_raw8          Renewal Issue                     1.165
+TextTopic_raw8          Refund                            7.169
+TextTopic_raw8          Member Inquiry                   92.616
+TextTopic_raw8          Mailed info                       1.896
+TextTopic_raw8          Donation Question                 0.524
+TextTopic_raw8          Change Solicitation prefere       1.387
+TextTopic_raw8          Change Personal Information       2.049
+TextTopic_raw8          Benefit update                    1.589
+TextTopic_raw9          Sustainer Request                 4.413
+TextTopic_raw9          Renewal Issue                     1.573
+TextTopic_raw9          Refund                            0.134
+TextTopic_raw9          Member Inquiry                   <0.001
+TextTopic_raw9          Mailed info                      16.308
+TextTopic_raw9          Donation Question                 4.291
+TextTopic_raw9          Change Solicitation prefere       0.805
+TextTopic_raw9          Change Personal Information       0.549
+TextTopic_raw9          Benefit update                    3.874
+
+
+*------------------------------------------------------------*
+* Score Output
+*------------------------------------------------------------*
+
+
+*------------------------------------------------------------*
+* Report Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Fit Statistics
+ 
+Target=Group Target Label=' '
+ 
+   Fit
+Statistics    Statistics Label                     Train    Validation
+ 
+ _AIC_        Akaike's Information Criterion     8470.01          .
+ _ASE_        Average Squared Error                 0.08         0.08
+ _AVERR_      Average Error Function                0.38         0.41
+ _DFE_        Degrees of Freedom for Error      18612.00          .
+ _DFM_        Model Degrees of Freedom            234.00          .
+ _DFT_        Total Degrees of Freedom          18846.00          .
+ _DIV_        Divisor for ASE                   20940.00      9070.00
+ _ERR_        Error Function                     8002.01      3760.52
+ _FPE_        Final Prediction Error                0.08          .
+ _MAX_        Maximum Absolute Error                1.00         1.00
+ _MSE_        Mean Square Error                     0.08         0.08
+ _NOBS_       Sum of Frequencies                 2094.00       907.00
+ _NW_         Number of Estimate Weights          234.00          .
+ _RASE_       Root Average Sum of Squares           0.29         0.29
+ _RFPE_       Root Final Prediction Error           0.29          .
+ _RMSE_       Root Mean Squared Error               0.29         0.29
+ _SBC_        Schwarz's Bayesian Criterion      10305.52          .
+ _SSE_        Sum of Squared Errors              1714.70       767.47
+ _SUMW_       Sum of Case Weights Times Freq    20940.00      9070.00
+ _MISC_       Misclassification Rate                0.70         0.72
+ 
+ 
+ 
+ 
+Classification Table
+ 
+Data Role=TRAIN Target Variable=Group Target Label=' '
+ 
+                                                                Target        Outcome     Frequency       Total
+Target                         Outcome                        Percentage    Percentage      Count      Percentage
+ 
+BENEFIT ISSUE                  BENEFIT ISSUE                     30.769        2.0202          4          0.1910
+BENEFIT UPDATE                 BENEFIT ISSUE                     15.385        0.7117          2          0.0955
+CHANGE SOLICITATION PREFERE    BENEFIT ISSUE                     15.385        0.6098          2          0.0955
+DONATION QUESTION              BENEFIT ISSUE                      7.692        0.3378          1          0.0478
+RENEWAL ISSUE                  BENEFIT ISSUE                      7.692        0.9901          1          0.0478
+SUSTAINER REQUEST              BENEFIT ISSUE                     23.077        0.4959          3          0.1433
+BENEFIT ISSUE                  BENEFIT UPDATE                     7.500        1.5152          3          0.1433
+BENEFIT UPDATE                 BENEFIT UPDATE                    27.500        3.9146         11          0.5253
+CHANGE PERSONAL INFORMATION    BENEFIT UPDATE                     7.500        2.1127          3          0.1433
+CHANGE SOLICITATION PREFERE    BENEFIT UPDATE                    12.500        1.5244          5          0.2388
+DONATION QUESTION              BENEFIT UPDATE                    12.500        1.6892          5          0.2388
+REFUND                         BENEFIT UPDATE                     5.000        3.5714          2          0.0955
+RENEWAL ISSUE                  BENEFIT UPDATE                    10.000        3.9604          4          0.1910
+SUSTAINER REQUEST              BENEFIT UPDATE                    17.500        1.1570          7          0.3343
+BENEFIT ISSUE                  CHANGE SOLICITATION PREFERE        8.081        4.0404          8          0.3820
+BENEFIT UPDATE                 CHANGE SOLICITATION PREFERE       10.101        3.5587         10          0.4776
+CHANGE PERSONAL INFORMATION    CHANGE SOLICITATION PREFERE        6.061        4.2254          6          0.2865
+CHANGE SOLICITATION PREFERE    CHANGE SOLICITATION PREFERE       29.293        8.8415         29          1.3849
+DONATION QUESTION              CHANGE SOLICITATION PREFERE       19.192        6.4189         19          0.9074
+MAILED INFO                    CHANGE SOLICITATION PREFERE        2.020        2.6667          2          0.0955
+MEMBER INQUIRY                 CHANGE SOLICITATION PREFERE        1.010        8.3333          1          0.0478
+REFUND                         CHANGE SOLICITATION PREFERE        3.030        5.3571          3          0.1433
+RENEWAL ISSUE                  CHANGE SOLICITATION PREFERE        2.020        1.9802          2          0.0955
+SUSTAINER REQUEST              CHANGE SOLICITATION PREFERE       19.192        3.1405         19          0.9074
+BENEFIT ISSUE                  DONATION QUESTION                  6.542        3.5354          7          0.3343
+BENEFIT UPDATE                 DONATION QUESTION                 14.953        5.6940         16          0.7641
+CHANGE PERSONAL INFORMATION    DONATION QUESTION                  6.542        4.9296          7          0.3343
+CHANGE SOLICITATION PREFERE    DONATION QUESTION                 11.215        3.6585         12          0.5731
+DONATION QUESTION              DONATION QUESTION                 27.103        9.7973         29          1.3849
+MAILED INFO                    DONATION QUESTION                  1.869        2.6667          2          0.0955
+MEMBER INQUIRY                 DONATION QUESTION                  1.869       16.6667          2          0.0955
+REFUND                         DONATION QUESTION                  2.804        5.3571          3          0.1433
+RENEWAL ISSUE                  DONATION QUESTION                  6.542        6.9307          7          0.3343
+SUSTAINER REQUEST              DONATION QUESTION                 20.561        3.6364         22          1.0506
+MEMBER INQUIRY                 MEMBER INQUIRY                   100.000       16.6667          2          0.0955
+BENEFIT ISSUE                  RENEWAL ISSUE                      5.000        1.0101          2          0.0955
+BENEFIT UPDATE                 RENEWAL ISSUE                     17.500        2.4911          7          0.3343
+CHANGE PERSONAL INFORMATION    RENEWAL ISSUE                      5.000        1.4085          2          0.0955
+CHANGE SOLICITATION PREFERE    RENEWAL ISSUE                     10.000        1.2195          4          0.1910
+DONATION QUESTION              RENEWAL ISSUE                     12.500        1.6892          5          0.2388
+MAILED INFO                    RENEWAL ISSUE                      5.000        2.6667          2          0.0955
+RENEWAL ISSUE                  RENEWAL ISSUE                     30.000       11.8812         12          0.5731
+SUSTAINER REQUEST              RENEWAL ISSUE                     15.000        0.9917          6          0.2865
+BENEFIT ISSUE                  SUSTAINER REQUEST                  9.704       87.8788        174          8.3095
+BENEFIT UPDATE                 SUSTAINER REQUEST                 13.107       83.6299        235         11.2225
+CHANGE PERSONAL INFORMATION    SUSTAINER REQUEST                  6.916       87.3239        124          5.9217
+CHANGE SOLICITATION PREFERE    SUSTAINER REQUEST                 15.393       84.1463        276         13.1805
+DONATION QUESTION              SUSTAINER REQUEST                 13.218       80.0676        237         11.3181
+MAILED INFO                    SUSTAINER REQUEST                  3.848       92.0000         69          3.2951
+MEMBER INQUIRY                 SUSTAINER REQUEST                  0.390       58.3333          7          0.3343
+REFUND                         SUSTAINER REQUEST                  2.677       85.7143         48          2.2923
+RENEWAL ISSUE                  SUSTAINER REQUEST                  4.183       74.2574         75          3.5817
+SUSTAINER REQUEST              SUSTAINER REQUEST                 30.563       90.5785        548         26.1700
+ 
+ 
+Data Role=VALIDATE Target Variable=Group Target Label=' '
+ 
+                                                                Target        Outcome     Frequency       Total
+Target                         Outcome                        Percentage    Percentage      Count      Percentage
+ 
+CHANGE SOLICITATION PREFERE    BENEFIT ISSUE                    100.000         0.714          1          0.1103
+BENEFIT ISSUE                  BENEFIT UPDATE                    16.667         2.326          2          0.2205
+CHANGE PERSONAL INFORMATION    BENEFIT UPDATE                    16.667         3.279          2          0.2205
+CHANGE SOLICITATION PREFERE    BENEFIT UPDATE                    25.000         2.143          3          0.3308
+REFUND                         BENEFIT UPDATE                    16.667         8.000          2          0.2205
+SUSTAINER REQUEST              BENEFIT UPDATE                    25.000         1.158          3          0.3308
+BENEFIT ISSUE                  CHANGE SOLICITATION PREFERE        5.000         2.326          2          0.2205
+BENEFIT UPDATE                 CHANGE SOLICITATION PREFERE       12.500         4.098          5          0.5513
+CHANGE PERSONAL INFORMATION    CHANGE SOLICITATION PREFERE        5.000         3.279          2          0.2205
+CHANGE SOLICITATION PREFERE    CHANGE SOLICITATION PREFERE       17.500         5.000          7          0.7718
+DONATION QUESTION              CHANGE SOLICITATION PREFERE       20.000         6.250          8          0.8820
+REFUND                         CHANGE SOLICITATION PREFERE        2.500         4.000          1          0.1103
+RENEWAL ISSUE                  CHANGE SOLICITATION PREFERE       10.000         8.889          4          0.4410
+SUSTAINER REQUEST              CHANGE SOLICITATION PREFERE       27.500         4.247         11          1.2128
+BENEFIT ISSUE                  DONATION QUESTION                  8.889         4.651          4          0.4410
+BENEFIT UPDATE                 DONATION QUESTION                 22.222         8.197         10          1.1025
+CHANGE PERSONAL INFORMATION    DONATION QUESTION                  4.444         3.279          2          0.2205
+CHANGE SOLICITATION PREFERE    DONATION QUESTION                 22.222         7.143         10          1.1025
+DONATION QUESTION              DONATION QUESTION                 17.778         6.250          8          0.8820
+MAILED INFO                    DONATION QUESTION                  4.444         5.882          2          0.2205
+REFUND                         DONATION QUESTION                 11.111        20.000          5          0.5513
+RENEWAL ISSUE                  DONATION QUESTION                  2.222         2.222          1          0.1103
+SUSTAINER REQUEST              DONATION QUESTION                  6.667         1.158          3          0.3308
+BENEFIT UPDATE                 RENEWAL ISSUE                     25.000         2.459          3          0.3308
+CHANGE PERSONAL INFORMATION    RENEWAL ISSUE                     25.000         4.918          3          0.3308
+CHANGE SOLICITATION PREFERE    RENEWAL ISSUE                      8.333         0.714          1          0.1103
+DONATION QUESTION              RENEWAL ISSUE                      8.333         0.781          1          0.1103
+REFUND                         RENEWAL ISSUE                      8.333         4.000          1          0.1103
+RENEWAL ISSUE                  RENEWAL ISSUE                      8.333         2.222          1          0.1103
+SUSTAINER REQUEST              RENEWAL ISSUE                     16.667         0.772          2          0.2205
+BENEFIT ISSUE                  SUSTAINER REQUEST                  9.787        90.698         78          8.5998
+BENEFIT UPDATE                 SUSTAINER REQUEST                 13.049        85.246        104         11.4664
+CHANGE PERSONAL INFORMATION    SUSTAINER REQUEST                  6.524        85.246         52          5.7332
+CHANGE SOLICITATION PREFERE    SUSTAINER REQUEST                 14.806        84.286        118         13.0099
+DONATION QUESTION              SUSTAINER REQUEST                 13.927        86.719        111         12.2381
+MAILED INFO                    SUSTAINER REQUEST                  4.015        94.118         32          3.5281
+MEMBER INQUIRY                 SUSTAINER REQUEST                  0.878       100.000          7          0.7718
+REFUND                         SUSTAINER REQUEST                  2.008        64.000         16          1.7641
+RENEWAL ISSUE                  SUSTAINER REQUEST                  4.893        86.667         39          4.2999
+SUSTAINER REQUEST              SUSTAINER REQUEST                 30.113        92.664        240         26.4609
+ 
+ 
+ 
+ 
+Event Classification Table
+ 
+Data Role=TRAIN Target=Group Target Label=' '
+ 
+  False       True        False       True
+Negative    Negative    Positive    Positive
+ 
+   57          244        1245         548
+ 
+ 
+Data Role=VALIDATE Target=Group Target Label=' '
+ 
+  False       True        False       True
+Negative    Negative    Positive    Positive
+ 
+   19          91          557         240
+ 
+ 
+ 
+ 
+Assessment Score Rankings
+ 
+Data Role=TRAIN Target Variable=Group Target Label=' '
+ 
+                                                                                           Mean
+                               Cumulative        %       Cumulative      Number of      Posterior
+Depth      Gain       Lift        Lift       Response    % Response    Observations    Probability
+ 
+   5     71.4097    1.71410      1.71410      49.5238      49.5238          105          0.48448
+  10     48.3353    1.25261      1.48335      36.1905      42.8571          105          0.40915
+  15     40.2043    1.23942      1.40204      35.8095      40.5079          105          0.37119
+  20     42.9070    1.51093      1.42907      43.6538      41.2888          104          0.35202
+  25     38.7105    1.21965      1.38710      35.2381      40.0763          105          0.33718
+  30     31.5130    0.95594      1.31513      27.6190      37.9968          105          0.32265
+  35     28.9080    1.13153      1.28908      32.6923      37.2442          104          0.31056
+  40     27.2120    1.15372      1.27212      33.3333      36.7542          105          0.29977
+  45     22.9573    0.89001      1.22957      25.7143      35.5249          105          0.28961
+  50     21.1831    1.05096      1.21183      30.3644      35.0123          104          0.28428
+  55     19.2777    1.00278      1.19278      28.9724      34.4618          105          0.28183
+  60     15.9226    0.79112      1.15923      22.8571      33.4924          105          0.27530
+  65     13.3389    0.82409      1.13339      23.8095      32.7460          105          0.26819
+  70     10.9648    0.79873      1.10965      23.0769      32.0600          104          0.26052
+  75     10.8187    1.08779      1.10819      31.4286      32.0178          105          0.25020
+  80      8.4193    0.72519      1.08419      20.9524      31.3246          105          0.23904
+  85      5.7792    0.63233      1.05779      18.2692      30.5618          104          0.22595
+  90      4.6610    0.85705      1.04661      24.7619      30.2387          105          0.20842
+  95      2.9651    0.72519      1.02965      20.9524      29.7487          105          0.18264
+ 100      0.0000    0.43264      1.00000      12.5000      28.8921          104          0.12503
+ 
+ 
+Data Role=VALIDATE Target Variable=Group Target Label=' '
+ 
+                                                                                           Mean
+                               Cumulative        %       Cumulative      Number of      Posterior
+Depth      Gain       Lift        Lift       Response    % Response    Observations    Probability
+ 
+   5     21.8063    1.21806      1.21806      34.7826      34.7826          46           0.48296
+  10     26.9931    1.32295      1.26993      37.7778      36.2637          45           0.41468
+  15      9.9146    0.76129      1.09915      21.7391      31.3869          46           0.38169
+  20      9.1948    1.07003      1.09195      30.5556      31.1813          45           0.36045
+  25     20.3307    1.65369      1.20331      47.2222      34.3612          45           0.34683
+  30     25.7103    1.52258      1.25710      43.4783      35.8974          46           0.33310
+  35     20.0347    0.85603      1.20035      24.4444      34.2767          45           0.31941
+  40     23.4841    1.47859      1.23484      42.2222      35.2617          45           0.30682
+  45     19.8705    0.91355      1.19870      26.0870      34.2298          46           0.29386
+  50     18.0759    1.01766      1.18076      29.0598      33.7174          45           0.28608
+  55     14.3917    0.77222      1.14392      22.0513      32.6653          45           0.28410
+  60      9.2345    0.53290      1.09235      15.2174      31.1927          46           0.28023
+  65      9.2127    1.08949      1.09213      31.1111      31.1864          45           0.27453
+  70      8.6426    1.01167      1.08643      28.8889      31.0236          45           0.26840
+  75      6.9606    0.83742      1.06961      23.9130      30.5433          46           0.25858
+  80      5.1544    0.77821      1.05154      22.2222      30.0275          45           0.24460
+  85      5.3759    1.08949      1.05376      31.1111      30.0908          45           0.23202
+  90      5.0151    0.98968      1.05015      28.2609      29.9878          46           0.21566
+  95      1.9704    0.46692      1.01970      13.3333      29.1183          45           0.19581
+ 100      0.0000    0.62257      1.00000      17.7778      28.5557          45           0.14637
+ 
+ 
+ 
+ 
+Assessment Score Distribution
+ 
+Data Role=TRAIN Target Variable=Group Target Label=' '
+ 
+ Posterior     Number                     Mean
+Probability      of      Number of     Posterior
+   Range       Events    Nonevents    Probability    Percentage
+ 
+ 0.65-0.70         1          0         0.65441         0.0478
+ 0.55-0.60         4          4         0.57670         0.3820
+ 0.50-0.55         9          8         0.52805         0.8118
+ 0.45-0.50        26         29         0.47283         2.6266
+ 0.40-0.45        35         57         0.42436         4.3935
+ 0.35-0.40        87        120         0.37002         9.8854
+ 0.30-0.35       128        274         0.32321        19.1977
+ 0.25-0.30       197        539         0.27658        35.1480
+ 0.20-0.25        82        275         0.22855        17.0487
+ 0.15-0.20        27        122         0.17781         7.1156
+ 0.10-0.15         6         36         0.13203         2.0057
+ 0.05-0.10         3         24         0.07728         1.2894
+ 0.00-0.05         0          1         0.04092         0.0478
+ 
+ 
+Data Role=VALIDATE Target Variable=Group Target Label=' '
+ 
+ Posterior     Number                     Mean
+Probability      of      Number of     Posterior
+   Range       Events    Nonevents    Probability    Percentage
+ 
+ 0.60-0.65        1           1         0.60181         0.2205
+ 0.55-0.60        1           0         0.55490         0.1103
+ 0.50-0.55        3           5         0.51465         0.8820
+ 0.45-0.50        8          17         0.47703         2.7563
+ 0.40-0.45       20          35         0.41955         6.0639
+ 0.35-0.40       28          73         0.36924        11.1356
+ 0.30-0.35       66         104         0.32527        18.7431
+ 0.25-0.30       82         242         0.27761        35.7222
+ 0.20-0.25       40         110         0.22651        16.5380
+ 0.15-0.20        6          44         0.18195         5.5127
+ 0.10-0.15        3          12         0.13181         1.6538
+ 0.05-0.10        1           5         0.07690         0.6615
