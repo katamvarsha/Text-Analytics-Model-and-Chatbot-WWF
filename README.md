@@ -92,6 +92,64 @@ The text analytics model also uses live scoring to identify the topic of a custo
    $ npm install react-chatbot-kit
    ```
 ### Configuration   
+- **MessageParser**  
+The parse function of MessageParser is utilized to process each user message.   
+This function includes a set of rules that determine the action to be initiated.
+
+```sh
+
+const MessageParser = ({ children, actions }) => {
+    const parse = (message) => {
+        message = message.toLowerCase()
+        if (message.includes('hello')) {
+        actions.handleHello()
+        }
+    };
+     return (
+        <div>
+            {React.Children.map(children, (child) => {
+                return React.cloneElement(child, {
+                    parse: parse,
+                    actions,
+                });
+            })}
+        </div>
+    );
+};
+
+```
+
+- **ActionProvider**   
+After defining the ruleset, the next step is to develop an action that can be activated. It should be designed to carry out a specific task or response based on the user's input. Depending on the context and purpose of the program, the action can take various forms such as a displaying a message or executing a function. 
+
+```sh
+
+const ActionProvider = ({ createChatBotMessage, setState, children }) => {
+    const updateState = (botMessage) => {
+        setState((prev) => ({
+            ...prev,
+            messages: [...prev.messages, botMessage],
+        }));
+    }
+    const handleHello = () => {
+        const botMessage = createChatBotMessage('Hello. Nice to meet you.');
+        updateState(botMessage)
+    };
+    
+    return (
+        <div>
+            {React.Children.map(children, (child) => {
+                return React.cloneElement(child, {
+                    actions: {
+                        handleHello
+                    },
+                });
+            })}
+        </div>
+    );
+};
+
+```
 _For more information on how to configure and customize the react chatbot, please refer to the [Documentation](https://fredrikoseberg.github.io/react-chatbot-kit-docs/docs/configure-your-bot)_
 
 ### Usage
