@@ -4,6 +4,16 @@
 
 # WILD - Developing a Chatbot
 
+We are a group of Business Analytics students from George Washington University. Our practicum project is to build a chatbot and text analytics model for our client -- the World Wildlife Fund.
+
+Team member:
+- Pedro Chames Carvalho
+- Ke Chai
+- Varsha Katam
+- Hao Ren
+- Priscilla Sit
+- Alejandra Taboada 
+
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
@@ -189,14 +199,14 @@ To continuously build the chatbot’s knowledge base, it will be useful to conne
 
 ## Risk Considerations
 **1. Data privacy**:
-The chatbot may collect user data such as personal information or location, either on purpose or by accident, depending on the customer query and input. WWF will need a secure database to store these data to ensure they are encrypted and properly stored. Irrelevant personal information should be erased from the database. 
+Data leak and/or data breach caused by malicious attacks or human mistakes are possible. WWF will need a secure database to store these data to ensure they are encrypted and properly stored. Irrelevant personal information should be erased from the database. 
 
 **2. Chatbot response accuracy:**
-As the chatbot requires and depends on learning from the knowledge base to provide its responses, its accuracy is highly dependent on the quality and completeness of the information provided to it. There is a risk of the chatbot providing inaccurate information or inappropriate responses if the data collected is not monitored, reviewed and cleaned. Inaccurate or inappropriate responses could lead to misunderstandings and confusion, harm the brand reputation. 
+As the chatbot requires and depends on learning from the knowledge base to provide its responses, its accuracy is highly dependent on the quality and completeness of the information provided to it. There is a risk of the chatbot providing inaccurate information or inappropriate responses if the data collected is not monitored, reviewed and cleaned. Inaccurate or inappropriate responses could lead to misunderstandings and confusion, harm the brand reputation. A possible solution to this would be adding a troubleshoot option in the chatbot to inform the IT team promptly.
 
 **3. Limited Ability to Handle Complex Situations:**
-Chatbots may have difficulty dealing with complex customer queries or issues that require human intervention and problem-solving skills.
+Chatbots may have difficulty dealing with complex customer queries or issues that require human intervention and problem-solving skills. Similar to point 2, thsi could be solved by adding a "chat with customer service representative" button in the chatbot for customer service staff to take on the queries. 
 
-**4. Maintenance and Updates:**
-Chatbots require regular maintenance and updates to ensure they continue to function properly and provide accurate responses. Failure to do so can lead to a breakdown in the system and a negative impact on the customer experience.
+**4. Change management:**
+Chatbots require regular maintenance and updates to ensure they continue to function properly and provide accurate responses. Failure to do so can lead to a breakdown in the system and a negative impact on the customer experience. Another consideration is that inconsistencies/descrepancies could exist between frontend and backend. or issues from API, throughout the maintenance process, which may cause infunctionality. 
 
