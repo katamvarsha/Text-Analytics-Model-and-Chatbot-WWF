@@ -4,8 +4,7 @@
 
 # WILD - Developing a Chatbot
 
-We are a group of Business Analytics students from George Washington University. Our project is to build a chatbot and text analytics model for our client, World Wildlife Fund.
-
+As Business Analytics students from The George Washington University, our project involves building a chatbot and text analytics model for our client, the World Wildlife Fund.  
 Team members: Pedro Chames Carvalho, Ke Chai, Varsha Katam, Hao Ren, Priscilla Sit, Alejandra Taboada 
 
 <!-- TABLE OF CONTENTS -->
