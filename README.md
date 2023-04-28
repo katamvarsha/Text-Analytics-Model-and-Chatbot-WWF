@@ -1,4 +1,11 @@
-## WILD - Developing a Chatbot
+<a target="_blank" href="https://www.worldwildlife.org/">
+    <img src="https://user-images.githubusercontent.com/111586468/235177635-15f4dab0-0176-4a96-98af-108b0ae80460.JPG" height="100" align="right"/>
+</a>
+
+# WILD - Developing a Chatbot
+
+As Business Analytics students from The George Washington University, our project involves building a chatbot and text analytics model for our client, the World Wildlife Fund.  
+Team members: Pedro Chames Carvalho, Ke Chai, Varsha Katam, Hao Ren, Priscilla Sit, Alejandra Taboada 
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
@@ -20,7 +27,9 @@ In our research, we identified extended wait times, inaccurate query resolution,
 
 ## Problem Understanding
 
-WWF needed a comprehensive solution to improve their customer query resolution process and ease the workload of their Customer Service team. We developed a chatbot and a text analytics model that could accurately forecast customer queries and display their accuracy percentage. WWF faced significant challenges in managing customer queries and resolving issues in a timely manner due to the reliance on phone and email support. This approach made it difficult to identify recurring queries and pain points of customers, resulting in dissatisfaction and frustration. The objective of the project was to build an interactive chatbot platform that reduces the number of recurring queries and provides valuable insights into customer needs and preferences. The identified pain points included extended wait times, inaccurate query resolution, and difficulties in navigating the website. Addressing these issues could enhance customer satisfaction and loyalty, leading to an improvement in WWF's overall reputation.
+WWF needed a comprehensive solution to improve their customer query resolution process and ease the workload of their Customer Service team. We developed a chatbot and a text analytics model that could accurately forecast customer queries and display their accuracy percentage. WWF faced significant challenges in managing customer queries and resolving issues in a timely manner due to the reliance on phone and email support. This approach made it difficult to identify recurring queries and pain points of customers, resulting in dissatisfaction and frustration.  
+
+The objective of the project was to build an interactive chatbot platform that reduces the number of recurring queries and provides valuable insights into customer needs and preferences. The identified pain points included extended wait times, inaccurate query resolution, and difficulties in navigating the website. Addressing these issues could enhance customer satisfaction and loyalty, leading to an improvement in WWF's overall reputation.
 
 ## Data Collection and Pre-processing
 
@@ -70,36 +79,94 @@ The text analytics model also uses live scoring to identify the topic of a custo
 5. After the installation is complete, open a terminal or command prompt and type "node -v" to verify that Node.js has been installed correctly. You should see the version number of Node.js printed to the console.
 5. Next, type "npm -v" to verify that npm (Node Package Manager) has also been installed. You should see the version number of npm printed to the console.
 
-### Installation
+## Installation
 
 1. Clone the repo using HTTPS or SSH
    ```sh
-   git clone https://github.com/katamvarsha/chatbot.git
-   git clone git@github.com:katamvarsha/chatbot.git
+   $ git clone https://github.com/katamvarsha/chatbot.git
+   $ git clone git@github.com:katamvarsha/chatbot.git
    ```
 2. Install NPM packages and node modules 
    ```sh
-   npm install
+   $ npm install
    ```
 3. Install react-chatbot-kit 
    ```sh
-   npm install react-chatbot-kit
+   $ npm install react-chatbot-kit
    ```
-### Configuration   
-_For more information on how to configure and customize the react chatbot, please refer to the [Documentation](https://fredrikoseberg.github.io/react-chatbot-kit-docs/docs/configure-your-bot)_
+## Configuration  
+For further details and information regarding React Chatbot Kit, please refer to the official [documentation](https://fredrikoseberg.github.io/react-chatbot-kit-docs/docs/).
 
-### Usage
+### MessageParser  
+The parse function of MessageParser is utilized to process each user message.   
+This function includes a set of rules that determine the action to be initiated.
 
-Run the chatbot using the following command, this will open the development server at http://localhost:3000/.
+```sh
+
+const MessageParser = ({ children, actions }) => {
+    const parse = (message) => {
+        message = message.toLowerCase()
+        if (message.includes('hello')) {
+        actions.handleHello()
+        }
+    };
+     return (
+        <div>
+            {React.Children.map(children, (child) => {
+                return React.cloneElement(child, {
+                    parse: parse,
+                    actions,
+                });
+            })}
+        </div>
+    );
+};
+
+```
+
+### ActionProvider   
+After defining the ruleset, the next step is to develop an action that can be activated. It should be designed to carry out a specific task or response based on the user's input. Depending on the context and purpose of the program, the action can take various forms such as a displaying a message or executing a function. 
+
+```sh
+
+const ActionProvider = ({ createChatBotMessage, setState, children }) => {
+    const updateState = (botMessage) => {
+        setState((prev) => ({
+            ...prev,
+            messages: [...prev.messages, botMessage],
+        }));
+    }
+    const handleHello = () => {
+        const botMessage = createChatBotMessage('Hello. Nice to meet you.');
+        updateState(botMessage)
+    };
+    
+    return (
+        <div>
+            {React.Children.map(children, (child) => {
+                return React.cloneElement(child, {
+                    actions: {
+                        handleHello
+                    },
+                });
+            })}
+        </div>
+    );
+};
+
+```
+
+## Usage
+To start the interactive chatbot, simply run $ npm start. This will open the development server at http://localhost:3000/.
  ```sh
-   cd wwf
-   npm start
+   $ cd wwf
+   $ npm start
    ```
-<img src="https://user-images.githubusercontent.com/111586468/234170653-fa514401-6e37-4870-9b80-12534e0d07f1.JPG" height="350">    
+<img src="/demo/chatbot_demo.gif" height="470"/>     
    
 | Key Words        | Example Prompts from WWF Dataset           | Group  |
 | ------------- |:-------------:| -----:|
-| (cancel AND (membership OR donation)) OR refund      | I thought I was making a donation to the Canadian Wildlife Fund. I was not impressed to find out I was paying in US funds. IF there is a way to cancel this I would be happy. Otherwise I will be more careful next time | Refund |
+| (cancel AND (membership OR donat(ion/ing))) OR refund      | I thought I was making a donation to the Canadian Wildlife Fund. I was not impressed to find out I was paying in US funds. IF there is a way to cancel this I would be happy. Otherwise I will be more careful next time | Refund |
 | ((change OR update) AND (mail OR address OR name))   | I am trying to donate online. My name has recently changed from Lewis to Maloney. My email address has remained the same but the website won't accept this as a valid email address even though I received my donation request through that email address     |   Change Personal Information | 
 | (donation OR adopt) |  Good morning, I've made a donation a few days ago, I would like to know which carrier do you guys use so I can check with the people from the receiving department since I got it ship to my job. Thanks | Donation Question
 
@@ -111,7 +178,7 @@ There are a few suggested next steps to take the development of our chatbot and 
 
 The topic model was built and tested on the dataset provided. However, as we know the English language is fluid and there are multiple variations in the use of the language, it would be helpful to release the chatbot as a trial to collect real time customer input to test its response and accuracy. User testing will also enable WWF to understand what the chatbot may potentially struggle to understand and respond appropriately, e.g. certain languages, dialects, abbreviations, etc. so as to incorporate these considerations into the further development of the chatbot.
 
-**2. Integrating the chatbot and model with different messaging platforms to reach a wider audience**
+**2. Integrate the chatbot and model with different messaging platforms to reach a wider audience**
 
 We understand WWF is also on social media platforms like Facebook and Instagram where there are messaging platforms attached. Integrating the chatbot to these platforms enables WWF to solve customer enquiries not only with its official website but on multiple channels. This allows WWF to reach a wider span of audience and further enhance their customer service quality.
 
@@ -125,14 +192,14 @@ To continuously build the chatbot’s knowledge base, it will be useful to conne
 
 ## Risk Considerations
 **1. Data privacy**:
-The chatbot may collect user data such as personal information or location, either on purpose or by accident, depending on the customer query and input. WWF will need a secure database to store these data to ensure they are encrypted and properly stored. Irrelevant personal information should be erased from the database. 
+Data leak and/or data breach caused by malicious attacks or human mistakes are possible. WWF will need a secure database to store these data to ensure they are encrypted and properly stored. Irrelevant personal information should be erased from the database. 
 
 **2. Chatbot response accuracy:**
-As the chatbot requires and depends on learning from the knowledge base to provide its responses, its accuracy is highly dependent on the quality and completeness of the information provided to it. There is a risk of the chatbot providing inaccurate information or inappropriate responses if the data collected is not monitored, reviewed and cleaned. Inaccurate or inappropriate responses could lead to misunderstandings and confusion, harm the brand reputation. 
+As the chatbot requires and depends on learning from the knowledge base to provide its responses, its accuracy is highly dependent on the quality and completeness of the information provided to it. There is a risk of the chatbot providing inaccurate information or inappropriate responses if the data collected is not monitored, reviewed and cleaned. Inaccurate or inappropriate responses could lead to misunderstandings and confusion, harm the brand reputation. A possible solution to this would be adding a troubleshoot option in the chatbot to inform the IT team promptly.
 
 **3. Limited Ability to Handle Complex Situations:**
-Chatbots may have difficulty dealing with complex customer queries or issues that require human intervention and problem-solving skills.
+Chatbots may have difficulty dealing with complex customer queries or issues that require human intervention and problem-solving skills. Similar to point 2, thsi could be solved by adding a "chat with customer service representative" button in the chatbot for customer service staff to take on the queries. 
 
-**4. Maintenance and Updates:**
-Chatbots require regular maintenance and updates to ensure they continue to function properly and provide accurate responses. Failure to do so can lead to a breakdown in the system and a negative impact on the customer experience.
+**4. Change management:**
+Chatbots require regular maintenance and updates to ensure they continue to function properly and provide accurate responses. Failure to do so can lead to a breakdown in the system and a negative impact on the customer experience. Another consideration is that inconsistencies/descrepancies could exist between frontend and backend. or issues from API, throughout the maintenance process, which may cause infunctionality. 
 
