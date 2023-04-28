@@ -76,7 +76,7 @@ The text analytics model also uses live scoring to identify the topic of a custo
 5. After the installation is complete, open a terminal or command prompt and type "node -v" to verify that Node.js has been installed correctly. You should see the version number of Node.js printed to the console.
 5. Next, type "npm -v" to verify that npm (Node Package Manager) has also been installed. You should see the version number of npm printed to the console.
 
-### Installation
+## Installation
 
 1. Clone the repo using HTTPS or SSH
    ```sh
@@ -91,10 +91,10 @@ The text analytics model also uses live scoring to identify the topic of a custo
    ```sh
    $ npm install react-chatbot-kit
    ```
-### Configuration  
+## Configuration  
 For further details and information regarding React Chatbot Kit, please refer to the official [documentation](https://fredrikoseberg.github.io/react-chatbot-kit-docs/docs/).
 
-**MessageParser**  
+### MessageParser  
 The parse function of MessageParser is utilized to process each user message.   
 This function includes a set of rules that determine the action to be initiated.
 
@@ -121,7 +121,7 @@ const MessageParser = ({ children, actions }) => {
 
 ```
 
-**ActionProvider**   
+### ActionProvider   
 After defining the ruleset, the next step is to develop an action that can be activated. It should be designed to carry out a specific task or response based on the user's input. Depending on the context and purpose of the program, the action can take various forms such as a displaying a message or executing a function. 
 
 ```sh
@@ -153,7 +153,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
 ```
 
-### Usage
+## Usage
 To start the interactive chatbot, simply run $ npm start. This will open the development server at http://localhost:3000/.
  ```sh
    $ cd wwf
