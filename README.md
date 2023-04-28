@@ -75,26 +75,25 @@ The text analytics model also uses live scoring to identify the topic of a custo
 
 1. Clone the repo using HTTPS or SSH
    ```sh
-   git clone https://github.com/katamvarsha/chatbot.git
-   git clone git@github.com:katamvarsha/chatbot.git
+   $ git clone https://github.com/katamvarsha/chatbot.git
+   $ git clone git@github.com:katamvarsha/chatbot.git
    ```
 2. Install NPM packages and node modules 
    ```sh
-   npm install
+   $ npm install
    ```
 3. Install react-chatbot-kit 
    ```sh
-   npm install react-chatbot-kit
+   $ npm install react-chatbot-kit
    ```
 ### Configuration   
 _For more information on how to configure and customize the react chatbot, please refer to the [Documentation](https://fredrikoseberg.github.io/react-chatbot-kit-docs/docs/configure-your-bot)_
 
 ### Usage
-
-Run the chatbot using the following command, this will open the development server at http://localhost:3000/.
+To start the interactive chatbot, simply run $ npm start. This will open the development server at http://localhost:3000/.
  ```sh
-   cd wwf
-   npm start
+   $ cd wwf
+   $ npm start
    ```
 <img src="/demo/chatbot_demo.gif" height="470"/>     
    
