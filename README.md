@@ -96,7 +96,7 @@ Run the chatbot using the following command, this will open the development serv
    cd wwf
    npm start
    ```
-<img src="https://user-images.githubusercontent.com/111586468/234170653-fa514401-6e37-4870-9b80-12534e0d07f1.JPG" height="350">    
+<img src="/demo/chatbot_demo.gif" height="470"/>     
    
 | Key Words        | Example Prompts from WWF Dataset           | Group  |
 | ------------- |:-------------:| -----:|
