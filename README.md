@@ -91,8 +91,10 @@ The text analytics model also uses live scoring to identify the topic of a custo
    ```sh
    $ npm install react-chatbot-kit
    ```
-### Configuration   
-- **MessageParser**  
+### Configuration  
+For further details and information regarding React Chatbot Kit, please refer to the official [documentation](https://fredrikoseberg.github.io/react-chatbot-kit-docs/docs/).
+
+**MessageParser**  
 The parse function of MessageParser is utilized to process each user message.   
 This function includes a set of rules that determine the action to be initiated.
 
@@ -119,7 +121,7 @@ const MessageParser = ({ children, actions }) => {
 
 ```
 
-- **ActionProvider**   
+**ActionProvider**   
 After defining the ruleset, the next step is to develop an action that can be activated. It should be designed to carry out a specific task or response based on the user's input. Depending on the context and purpose of the program, the action can take various forms such as a displaying a message or executing a function. 
 
 ```sh
@@ -150,7 +152,6 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 };
 
 ```
-_For more information on how to configure and customize the react chatbot, please refer to the [Documentation](https://fredrikoseberg.github.io/react-chatbot-kit-docs/docs/configure-your-bot)_
 
 ### Usage
 To start the interactive chatbot, simply run $ npm start. This will open the development server at http://localhost:3000/.
