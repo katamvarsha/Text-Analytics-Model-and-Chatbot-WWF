@@ -169,6 +169,7 @@ To start the interactive chatbot, simply run $ npm start. This will open the dev
 | (cancel AND (membership OR donat(ion/ing))) OR refund      | I thought I was making a donation to the Canadian Wildlife Fund. I was not impressed to find out I was paying in US funds. IF there is a way to cancel this I would be happy. Otherwise I will be more careful next time | Refund |
 | ((change OR update) AND (mail OR address OR name))   | I am trying to donate online. My name has recently changed from Lewis to Maloney. My email address has remained the same but the website won't accept this as a valid email address even though I received my donation request through that email address     |   Change Personal Information | 
 | (donation OR adopt) |  Good morning, I've made a donation a few days ago, I would like to know which carrier do you guys use so I can check with the people from the receiving department since I got it ship to my job. Thanks | Donation Question
+| (change OR remove OR cancel) AND (donation or monthly) | Unfortunately need to cancel my monthly donation. Please give advise. | Change Solicitation Preferences  |
 
 ## Recommended Next Steps
 
