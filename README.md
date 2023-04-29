@@ -180,8 +180,8 @@ To start the interactive chatbot, simply run $ npm start. This will open the dev
 | renew  | I sent a membership renewal on the 17th, the wwf website hungup at the end of transaction. I am not sure if it went through. Can you help?  | Renewal Issue  |
 | (receive OR send OR forward) AND (mail OR receipt OR invoice OR address)  | Please forward a copy of invoice with mailing address to wjmacneill@gmail.  | Mailed Info |
 | member OR contribution  | I purchased membership a while ago for my two young sons and they requested the socks but never received them.  It has been a long time and they are now disappointed as if their membership doesn't count. How can I correct this?  | Member Inquiry  |
-| ((update OR incorrect OR status) AND (order OR address OR mail)) |  Hello, i still have not received my gift bag and i ordered it before christmas. just wondering what is taking so long | Benefit Update  |
-| (not received OR never received) AND (order OR mail OR receipt)  | Hello, The recipient never received the gift in the mail. Can you please confirm address and send again?  | Benefit Issue  |
+| ((update OR incorrect OR status) AND (order OR address OR mail)) |  I recently ordered this but the mailing address is incorrect. The correct mailing address is ### | Benefit Update  |
+| (not received OR never received) AND (order OR mail OR receipt)  | Hello, i still have not received my gift bag and i ordered it before christmas. just wondering what is taking so long  | Benefit Issue  |
 
 ## Recommended Next Steps
 
