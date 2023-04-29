@@ -104,7 +104,9 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                         handleRefund,
                         handleChangePersonalInfo,
                         handleDonationQuestion,
-                        handleContact
+                        handleContact,
+                        handleChangeSolicitation,
+                        handleSustainerRequest
                     },
                 });
             })}
