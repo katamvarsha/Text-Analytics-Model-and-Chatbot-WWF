@@ -172,6 +172,7 @@ To start the interactive chatbot, simply run $ npm start. This will open the dev
 | (update OR remove OR (take AND off)) AND mail | Hi. We very much appreciate the work you're doing, and we do donate. Would you please take us off the paper mailing list in order to save paper | Change Solicitation Preferences  | 
 | cancel AND (subscription OR membership or donation)  | Hi, I need to cancel my membership at this time. I am currently donating $15/month.Please advise me when this is done  | Sustainer Request  |
 | renew  | I sent a membership renewal on the 17th, the wwf website hungup at the end of transaction. I am not sure if it went through. Can you help?  | Renewal Issue  |
+| (receive OR send OR forward) AND (mail OR receipt OR invoice OR order)  | Please forward a copy of invoice with mailing address to wjmacneill@gmail.  | Mailed Info |
 
 ## Recommended Next Steps
 
