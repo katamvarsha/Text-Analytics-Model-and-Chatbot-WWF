@@ -106,7 +106,12 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                         handleDonationQuestion,
                         handleContact,
                         handleChangeSolicitation,
-                        handleSustainerRequest
+                        handleSustainerRequest,
+                        handleRenewalIssue,
+                        handleMailedInfo,
+                        handleMemberInquiry,
+                        handleBenefitUpdate,
+                        handleBenefitIssue
                     },
                 });
             })}
