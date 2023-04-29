@@ -79,7 +79,7 @@ The text analytics model also uses live scoring to identify the topic of a custo
 <!-- GETTING STARTED -->
 ## Getting Started
 
-1. Go to the official Node.js website at https://nodejs.org/en/
+1. Go to the official Node.js [website](https://nodejs.org/en/)
 2. Select the appropriate installer for your operating system (Windows, macOS, or Linux) and download it.
 4. Once the installer has finished downloading, run it and follow the on-screen instructions to install Node.js.
 5. After the installation is complete, open a terminal or command prompt and type "node -v" to verify that Node.js has been installed correctly. You should see the version number of Node.js printed to the console.
