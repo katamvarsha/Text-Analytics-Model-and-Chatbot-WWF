@@ -38,12 +38,7 @@ The dataset of customer inquiries was provided by the World Wildlife Fund in a f
 Data Cleaning: We used Python to clean the data, ensuring it was consistent, relevant, and error-free. The cleaning process removed irrelevant data (such as greetings and thank-you messages), standardized data by changing capitalization and punctuation, and removed noise (such as stop words, special characters, and HTML). We used 're' and 'nltk' packages for data cleaning.  
 
 **2. Topic Extraction:**   
-After cleaning the data, we used SAS Enterprise Miner to identify the top 25 topics in the dataset. These topics formed the basis for developing the interactive chatbot platform. We are continuously refining the topic extraction process to improve the quality of the topics identified. The top five significant areas we identified include   
-1. Cancel monthly donation 
-2. Order status
-3. Cancel membership payment
-4. Monthly payment status
-5. Remove from mailing list  
+After cleaning the data, we used SAS Enterprise Miner to identify the top 25 topics in the dataset. These topics formed the basis for developing the interactive chatbot platform. We are continuously refining the topic extraction process to improve the quality of the topics identified. The top five significant areas we identified include "Cancel monthly donation," "Asking about order status," "Cancel membership payment," "Monthly payment status," and "Remove customer from mailing list."  
 
 **3. Data Pre-processing:**  
 We pre-processed the data by tokenizing sentences into individual words, performing lemmatization, and removing stop words. This transformed the raw text data into a more structured format suitable for analysis.
@@ -187,15 +182,19 @@ There are a few suggested next steps to take the development of our chatbot and 
 
 The topic model was built and tested on the dataset provided. However, as we know the English language is fluid and there are multiple variations in the use of the language, it would be helpful to release the chatbot as a trial to collect real time customer input to test its response and accuracy. User testing will also enable WWF to understand what the chatbot may potentially struggle to understand and respond appropriately, e.g. certain languages, dialects, abbreviations, etc. so as to incorporate these considerations into the further development of the chatbot.
 
-**2. Integrate the chatbot and model with different messaging platforms to reach a wider audience**
+**2. Integrate chatbot with text analytics model
+
+To take the chatbot development to the next phase, it is suggested to connect the text analytics model to the chatbot for it to provide live scoring. Having the accuracy score will be a great addition. 
+
+**3. Integrate with different messaging platforms to reach a wider audience**
 
 We understand WWF is also on social media platforms like Facebook and Instagram where there are messaging platforms attached. Integrating the chatbot to these platforms enables WWF to solve customer enquiries not only with its official website but on multiple channels. This allows WWF to reach a wider span of audience and further enhance their customer service quality.
 
-**3. Add more features to the chatbot to enhance user experience**
+**4. Add more features to the chatbot to enhance user experience**
 
 In addition to text messages, customers could record voice messages on their enquiries. This would leverage voice recognition and natural language processing in the model’s further development. Also, the use of emojis are not uncommon nowadays and WWF can utilize that for sentiment analysis. It can be useful to distinguish positive and negative comments from customers to cater to their immediate needs and for the chatbot to react more appropriately if negative sentiments are detected. 
  
-**4. Connect the chatbot to WWF’s database**
+**5. Connect the chatbot to WWF’s database**
 
 To continuously build the chatbot’s knowledge base, it will be useful to connect the chatbot to WWF’s database and store all incoming customer enquiries there. This practice will not only apply to the chatbot but all customer enquiries from various existing customer service channels, e.g. email, phone, etc.. This will support the model’s continuous learning to better automate responses based on accurate and up-to-date information. 
 
