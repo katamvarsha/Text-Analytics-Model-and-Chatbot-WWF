@@ -70,11 +70,11 @@ The text analytics model also uses live scoring to identify the topic of a custo
 
 <img src="https://user-images.githubusercontent.com/111586468/234165654-b69db93d-b3af-4a57-b831-a4a254fc668c.JPG" width="100"> <img src="https://user-images.githubusercontent.com/111586468/234165920-1ed5b7ed-bc11-40c9-a2ab-7361a5b050ac.JPG" width="100"> <img src="https://user-images.githubusercontent.com/111586468/234166076-f3e1a5d8-788b-46fb-bc04-7aa7c8a260f1.JPG" width="100"> <img src="https://user-images.githubusercontent.com/111586468/234166189-98c28951-7cdc-4f81-8d90-3c3d19973ea2.JPG" width="100">   
 
-1. **Webstorm Integrated Development Environment (IDE)**.   
-2. **Node JS framework**, which is an open-source framework that allows developers to build scalable and high-performance applications using JavaScript.   
-3. **NPM (Node Package Manager)** to manage and install all the dependencies required for our chatbot.  
-4. **JavaScript** with the **ReactJS** library, which is a popular front-end development library that provides a component-based approach to building user interfaces.   
-5. Customized and configured the **react-chatbot-kit**, which is an open-source library that provides a framework for building chatbots using ReactJS. This allowed us to build a chatbot platform that was both user-friendly and effective in resolving customer queries.  
+1. **[Webstorm Integrated Development Environment (IDE)](https://www.jetbrains.com/webstorm/)**.   
+2. **[Node JS framework](https://nodejs.org/en)**, which is an open-source framework that allows developers to build scalable and high-performance applications using JavaScript.   
+3. **[NPM (Node Package Manager)](https://www.npmjs.com/)** to manage and install all the dependencies required for our chatbot.  
+4. **JavaScript** with the **[ReactJS](https://react.dev/)** library, which is a popular front-end development library that provides a component-based approach to building user interfaces.   
+5. Customized and configured the **[react-chatbot-kit](https://fredrikoseberg.github.io/react-chatbot-kit-docs/)**, which is an open-source library that provides a framework for building chatbots using ReactJS. This allowed us to build a chatbot platform that was both user-friendly and effective in resolving customer queries.  
 
 <!-- GETTING STARTED -->
 ## Getting Started
