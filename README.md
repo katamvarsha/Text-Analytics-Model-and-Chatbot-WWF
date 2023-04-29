@@ -166,9 +166,11 @@ To start the interactive chatbot, simply run $ npm start. This will open the dev
    
 | Key Words        | Example Prompts from WWF Dataset           | Group  |
 | ------------- |:-------------:| -----:|
-| (cancel AND (membership OR donat(ion/ing))) OR refund      | I thought I was making a donation to the Canadian Wildlife Fund. I was not impressed to find out I was paying in US funds. IF there is a way to cancel this I would be happy. Otherwise I will be more careful next time | Refund |
+| (refund AND (membership OR donat(ion/ing)))      | Recently cancelled monthly donation and asked for a refund however havent yet received money back | Refund |
 | ((change OR update) AND (mail OR address OR name))   | I am trying to donate online. My name has recently changed from Lewis to Maloney. My email address has remained the same but the website won't accept this as a valid email address even though I received my donation request through that email address     |   Change Personal Information | 
 | (donation OR adopt) |  Good morning, I've made a donation a few days ago, I would like to know which carrier do you guys use so I can check with the people from the receiving department since I got it ship to my job. Thanks | Donation Question
+| (update OR remove OR (take AND off)) AND mail | Hi. We very much appreciate the work you're doing, and we do donate. Would you please take us off the paper mailing list in order to save paper | Change Solicitation Preferences  | 
+| cancel AND (subscription OR membership or donation)  | Hi, I need to cancel my membership at this time. I am currently donating $15/month.Please advise me when this is done  | Sustainer Request  |
 
 ## Recommended Next Steps
 
