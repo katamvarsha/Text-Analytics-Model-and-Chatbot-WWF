@@ -191,9 +191,9 @@ There are a few suggested next steps to take the development of our chatbot and 
 
 The topic model was built and tested on the dataset provided. However, as we know the English language is fluid and there are multiple variations in the use of the language, it would be helpful to release the chatbot as a trial to collect real time customer input to test its response and accuracy. User testing will also enable WWF to understand what the chatbot may potentially struggle to understand and respond appropriately, e.g. certain languages, dialects, abbreviations, etc. so as to incorporate these considerations into the further development of the chatbot.
 
-**2. Integrate chatbot with text analytics model
+**2. Integrate chatbot with text analytics model**
 
-To take the chatbot development to the next phase, it is suggested to connect the text analytics model to the chatbot for it to provide live scoring. Having the accuracy score will be a great addition. 
+To take the chatbot development to the next phase, it is suggested to connect the text analytics model to the chatbot for it to provide live scoring. 
 
 **3. Integrate with different messaging platforms to reach a wider audience**
 
