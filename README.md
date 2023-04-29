@@ -41,10 +41,10 @@ Data Cleaning: We used Python to clean the data, ensuring it was consistent, rel
 **2. Topic Extraction:**   
 After cleaning the data, we used SAS Enterprise Miner to identify the top 25 topics in the dataset. These topics formed the basis for developing the interactive chatbot platform. We are continuously refining the topic extraction process to improve the quality of the topics identified. The top five significant areas we identified include   
 1. Cancel monthly donation
-2. Asking about order status
+2. Order status
 3. Cancel membership payment
 4. Monthly payment status
-5. Remove customer from mailing list
+5. Remove customer mailing list
 
 **3. Data Pre-processing:**  
 We pre-processed the data by tokenizing sentences into individual words, performing lemmatization, and removing stop words. This transformed the raw text data into a more structured format suitable for analysis.
