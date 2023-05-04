@@ -67,7 +67,7 @@ After topic extraction and matching our collected 25 topics with the 10 general 
 
 The text analytics model uses the Score node to identify the topic of a customer inquiry. The results are displayed above.
 
-As an example, TextTopic4 includes the combination of keywords "donor+refund+ description". When the model identifies it in an inquiry, it has a 22.22% chance of it being labeled as Benefit Update, Benefit Issue, or Member Inquiry. In the case of a tie, it breaks the tie by assigning the inquiry one of the most probable Groups.
+As an example, TextTopic4 includes the combination of keywords "donor+refund+description". When the model identifies it in an inquiry, it has a 22.22% chance of it being labeled as Benefit Update, Benefit Issue, or Member Inquiry. In the case of a tie, it breaks the tie by assigning the one of the most probable Groups.
 
 The full documentation of the model and the scoring results can be found in the Appendix.
 
