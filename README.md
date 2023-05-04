@@ -21,7 +21,7 @@ Team members: Pedro Chames Carvalho, Ke Chai, Varsha Katam, Hao Ren, Priscilla S
 
 ## Executive Summary
 
-The goal of our initiative was to create an interactive chatbot platform for World Wildlife Fund that utilizes natural language processing (NLP) and machine learning (ML) algorithms to streamline customer inquiries and ease the burden on the Customer Service team. Our project achieves this by accurately mapping customer queries to one of ten possible topics and providing swift categorisation, resulting in improved customer service and satisfaction.
+The goal of our initiative was to create an interactive chatbot platform for World Wildlife Fund that utilizes natural language processing (NLP) and machine learning (ML) algorithms to streamline customer inquiries and ease the burden on the Customer Service team. Our project achieves this by accurately mapping customer queries to one of ten possible topics and providing swift categorisation, which will aid in improved customer service and satisfaction.
 
 Our research revealed that extended wait times, inaccurate query resolution, and website navigation difficulties were the primary challenges faced by WWF. To demonstrate the effectiveness of our topic extraction approach, we created a chatbot that accurately categorizes customer queries into the top ten recurring topics.
 
