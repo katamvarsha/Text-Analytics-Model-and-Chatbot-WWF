@@ -21,6 +21,7 @@ Team members: Pedro Chames Carvalho, Ke Chai, Varsha Katam, Hao Ren, Priscilla S
 
 ## Executive Summary
 
+
 The goal of our initiative was to create an interactive chatbot platform for World Wildlife Fund that utilizes natural language processing (NLP) and machine learning (ML) algorithms to streamline customer inquiries and ease the burden on the Customer Service team. Our project achieves this by accurately mapping customer queries to one of ten possible topics and providing swift categorisation, which will aid in improved customer service and satisfaction.
 
 Our research revealed that extended wait times, inaccurate query resolution, and website navigation difficulties were the primary challenges faced by WWF. To demonstrate the effectiveness of our topic extraction approach, we created a chatbot that accurately categorizes customer queries into the top ten recurring topics.
@@ -62,7 +63,13 @@ We then proceeded to create the Text Analytics model. We want to create model th
 
 After topic extraction and matching our collected 25 topics with the 10 general ones given by the client, we compared a neural network, decision tree, and regression model to see which would more reliably predict the topic of a customer inquiry based on its contents. Out of those three, regression was the most accurate model, featuring a KS-statistic of 0.133 and a KS probability cutoff of 0.295.
 
-The text analytics model also uses live scoring to identify the topic of a customer inquiry. The full documentation of the model and the live scoring results can be found in the Appendix. Full integration of the text analytics model into the chatbot is a work in progress.
+![0af12daaf2fbd84b95832d344ba6025f](https://user-images.githubusercontent.com/131799834/236341133-65181bef-0774-4e8e-836b-9b529298ca70.png)
+
+The text analytics model uses the Score node to identify the topic of a customer inquiry. The results are displayed above.
+
+As an example, TextTopic4 includes the combination of keywords "donor+refund+ description". When the model identifies it in an inquiry, it has a 22.22% chance of it being labeled as Benefit Update, Benefit Issue, or Member Inquiry. In the case of a tie, it breaks the tie by assigning the inquiry one of the most probable Groups.
+
+The full documentation of the model and the scoring results can be found in the Appendix.
 
 ## The Chatbot
 ### Technologies Used For Chatbot   
