@@ -21,16 +21,15 @@ Team members: Pedro Chames Carvalho, Ke Chai, Varsha Katam, Hao Ren, Priscilla S
 
 ## Executive Summary
 
-Our project aimed to develop an interactive chatbot platform for WWF that leverages natural language processing (NLP) and machine learning (ML) algorithms to streamline customer query resolution and reduce the workload of the Customer Service team. By mapping customer queries to one of ten possible topics and providing accurate solutions quickly, the platform enhances customer service and satisfaction for WWF.
+The goal of our initiative was to create an interactive chatbot platform for World Wildlife Fund that utilizes natural language processing (NLP) and machine learning (ML) algorithms to streamline customer inquiries and ease the burden on the Customer Service team. Our project achieves this by accurately mapping customer queries to one of ten possible topics and providing swift categorisation, resulting in improved customer service and satisfaction.
 
-In our research, we identified extended wait times, inaccurate query resolution, and difficulty navigating the website as WWF’s key challenges. To address these issues, we developed the chatbot platform that can answer customer queries with high accuracy and includes a live scoring mechanism to provide feedback on the accuracy of queries.
-
+Our research revealed that extended wait times, inaccurate query resolution, and website navigation difficulties were the primary challenges faced by WWF. To demonstrate the effectiveness of our topic extraction approach, we created a chatbot that accurately categorizes customer queries into the top ten recurring topics.
 
 ## Problem Understanding
 
-WWF needed a comprehensive solution to improve their customer query resolution process and ease the workload of their Customer Service team. We developed a chatbot and a text analytics model that could accurately forecast customer queries and display their accuracy percentage. WWF faced significant challenges in managing customer queries and resolving issues in a timely manner due to the reliance on phone and email support. This approach made it difficult to identify recurring queries and pain points of customers, resulting in dissatisfaction and frustration.  
+WWF needed a comprehensive solution to improve their customer query resolution process and ease the workload of their Customer Service team. We developed a chatbot and a text analytics model that could accurately forecast customer queries by displaying their group. WWF faced significant challenges in managing customer queries and resolving issues in a timely manner due to the reliance on phone and email support. This approach made it difficult to identify recurring queries and pain points of customers, resulting in dissatisfaction and frustration.  
 
-The objective of the project was to build an interactive chatbot platform that reduces the number of recurring queries and provides valuable insights into customer needs and preferences. The identified pain points included extended wait times, inaccurate query resolution, and difficulties in navigating the website. Addressing these issues could enhance customer satisfaction and loyalty, leading to an improvement in WWF's overall reputation.
+The objective of the project was to build an interactive chatbot platform that reduces the number of recurring queries and provides valuable insights into customer needs and preferences. Addressing these issues could enhance customer satisfaction and loyalty, leading to an improvement in WWF's overall reputation.
 
 ## Data Collection and Pre-processing
 
