@@ -55,13 +55,17 @@ We pre-processed the data by tokenizing sentences into individual words, perform
 
 ![4127a8fef430552efa5474ef78551f1c](https://user-images.githubusercontent.com/131799834/234361104-e40d579a-4e6b-4564-96b6-72f292b16b80.png)
 
-We then proceeded to create the Text Analytics model. We want to create a model that accurately predicts the Group of a customer inquiry based on its content. To do this, we used SAS Enterprise Miner. Secondly, we used the Model Comparison feature of SAS to find the most accurate model. Finally, we also utilized the Score feature of the software so the model displays the probability that a customer inquiry is about a specific Group and assigns it the most probable one.
+We then proceeded to create the Text Analytics model. 
+
+1. We wanted to create a model that accurately predicts the Group of a customer inquiry based on its content. To do this, we used SAS Enterprise Miner. 
+2. Secondly, we used the Model Comparison feature of SAS to find the most accurate model. 
+3. Finally, we utilized the Score feature of the software so the model displays the probability that a customer inquiry is about a specific Group and assigns it the most probable one.
 
 **Results for the Text Analytics Model**
 
 ![f87f5cf4c24df6134268d5c44c9d81e8](https://user-images.githubusercontent.com/131799834/234364191-b20b8d69-8cb2-4d72-bc67-642682387700.png)
 
-After topic extraction and matching our collected 25 topics with the 10 general ones given by the client, we compared a neural network, decision tree, and regression model to see which would more reliably predict the topic of a customer inquiry based on its contents. Out of those three, regression was the most accurate model, featuring a KS-statistic of 0.133 and a KS probability cutoff of 0.295.
+After topic extraction and matching our collected 25 text topics with the 10 Groups given by the client, we compared a neural network, decision tree, and regression model to see which would more reliably predict the topic of a customer inquiry based on its contents. Out of those three, regression was the most accurate model, featuring a KS-statistic of 0.133 and a KS probability cutoff of 0.295.
 
 ![0af12daaf2fbd84b95832d344ba6025f](https://user-images.githubusercontent.com/131799834/236341133-65181bef-0774-4e8e-836b-9b529298ca70.png)
 
