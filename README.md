@@ -65,11 +65,13 @@ We then proceeded to create the Text Analytics model.
 
 ![f87f5cf4c24df6134268d5c44c9d81e8](https://user-images.githubusercontent.com/131799834/234364191-b20b8d69-8cb2-4d72-bc67-642682387700.png)
 
-After topic extraction and matching our collected 25 text topics with the 10 Groups given by the client, we compared a neural network, decision tree, and regression model to see which would more reliably predict the topic of a customer inquiry based on its contents. Out of those three, regression was the most accurate model, featuring a KS-statistic of 0.133 and a KS probability cutoff of 0.295.
+Using the Model Comparison feature, we compared a neural network, decision tree, and regression model to see which would more reliably predict the topic of a customer inquiry based on its contents. 
+
+Out of those three, the regression was the most accurate model, featuring a KS-statistic of 0.133 and a KS probability cutoff of 0.295.
 
 ![0af12daaf2fbd84b95832d344ba6025f](https://user-images.githubusercontent.com/131799834/236341133-65181bef-0774-4e8e-836b-9b529298ca70.png)
 
-The text analytics model uses the Score node to identify the topic of a customer inquiry. The results are displayed above.
+The text analytics model uses the Score node to identify the Group of a customer inquiry. The results are displayed above.
 
 As an example, TextTopic_raw4 includes the combination of keywords "donor+refund+description". When the model identifies it in an inquiry, it has a 22.22% chance of it being labeled as Benefit Update, Benefit Issue, or Member Inquiry. In the case of a tie, it breaks the tie by assigning it one of the most probable Groups.
 
