@@ -55,7 +55,7 @@ We pre-processed the data by tokenizing sentences into individual words, perform
 
 ![4127a8fef430552efa5474ef78551f1c](https://user-images.githubusercontent.com/131799834/234361104-e40d579a-4e6b-4564-96b6-72f292b16b80.png)
 
-We then proceeded to create the Text Analytics model. We want to create model that accurately predict the topic of a customer inquiry and assigns it one. To do this, we used SAS Enterprise Miner. Secondly, we used the Model Comparison feature of SAS so we could find the most accurate model. Finally, we also utilized the Score feature of the software so the model displays the probability that a customer inquiry is about a specific topic and assigns it the most probable one.
+We then proceeded to create the Text Analytics model. We want to create a model that accurately predicts the Group of a customer inquiry based on its content. To do this, we used SAS Enterprise Miner. Secondly, we used the Model Comparison feature of SAS to find the most accurate model. Finally, we also utilized the Score feature of the software so the model displays the probability that a customer inquiry is about a specific Group and assigns it the most probable one.
 
 **Results for the Text Analytics Model**
 
@@ -67,7 +67,7 @@ After topic extraction and matching our collected 25 topics with the 10 general 
 
 The text analytics model uses the Score node to identify the topic of a customer inquiry. The results are displayed above.
 
-As an example, TextTopic4 includes the combination of keywords "donor+refund+description". When the model identifies it in an inquiry, it has a 22.22% chance of it being labeled as Benefit Update, Benefit Issue, or Member Inquiry. In the case of a tie, it breaks the tie by assigning the one of the most probable Groups.
+As an example, TextTopic_raw4 includes the combination of keywords "donor+refund+description". When the model identifies it in an inquiry, it has a 22.22% chance of it being labeled as Benefit Update, Benefit Issue, or Member Inquiry. In the case of a tie, it breaks the tie by assigning it one of the most probable Groups.
 
 The full documentation of the model and the scoring results can be found in the Appendix.
 
