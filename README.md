@@ -199,7 +199,7 @@ The topic model was built and tested on the dataset provided. However, as we kno
 
 **2. Integrate chatbot with text analytics model**
 
-To take the chatbot development to the next phase, it is suggested to connect the text analytics model to the chatbot for it to provide live scoring. 
+To take the chatbot development to the next phase, it is suggested to connect the text analytics model to the chatbot for it to provide live scoring. Further continuous cleaning of the dataset would be required for better results. 
 
 **3. Integrate with different messaging platforms to reach a wider audience**
 
