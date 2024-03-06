@@ -6,7 +6,7 @@
 
 As Business Analytics students from The George Washington University, our project involves building a chatbot and text analytics model for our client, the World Wildlife Fund.  
 
-Team members: Pedro Chames Carvalho, Ke Chai, Varsha Katam, Hao Ren, Priscilla Sit, Alejandra Taboada 
+Team members:  Varsha Katam, Pedro Chames Carvalho, Ke Chai, Hao Ren, Priscilla Sit, Alejandra Taboada 
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
